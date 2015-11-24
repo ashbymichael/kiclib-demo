@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :user do
     username "MyString"
-password_hash "MyString"
+password_digest "MyString"
   end
 
 end
