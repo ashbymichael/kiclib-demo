@@ -10,12 +10,23 @@ class StudentsController < ApplicationController
     redirect_to '/'
   end
 
+  def edit
+  end
+
+  def update
+    if @student.update_attributes(student_params)
+      redirect_to '/'
+    else
+      render 'edit'
+    end
+  end
+
   private
     def student_params
       params.require(:student).permit(:name, :contact)
     end
 
     def set_student
-      @student = params[:id] if params[:id]
+      @student = Student.find(params[:id]) if params[:id]
     end
 end
