@@ -21,6 +21,11 @@ class StudentsController < ApplicationController
     end
   end
 
+  def destroy
+    @student.destroy
+    redirect_to '/'
+  end
+
   private
     def student_params
       params.require(:student).permit(:name, :contact)
