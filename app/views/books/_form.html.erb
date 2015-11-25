@@ -1,0 +1,9 @@
+<%= form_for @book do |f| %>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, id: 'title_input' %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>
