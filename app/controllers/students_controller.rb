@@ -37,6 +37,16 @@ class StudentsController < ApplicationController
     redirect_to '/'
   end
 
+  def find_student
+    if Student.exists?(params[:student])
+      render json: Student.find(params[:student])
+    elsif Student.exists?(contact: params[:student])
+      render json: Student.find_by(contact: params[:student])
+    elsif Student.exists?(['name LIKE ?', "%#{params[:student]}%"])
+      render json: Student.where("name LIKE ?", "%#{params[:student]}%")
+    end
+  end
+
   private
     def student_params
       params.require(:student).permit(:name, :contact)

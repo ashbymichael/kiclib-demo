@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :books
   resources :students
 
-  get  '/login'    => 'session#new'
-  post '/checkout' => 'books#checkout'
+  get  '/login'        => 'session#new'
+  post '/find_student' => 'students#find_student'
+  post '/checkout'     => 'books#checkout'
 end
