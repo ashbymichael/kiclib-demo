@@ -1,6 +1,10 @@
 class StudentsController < ApplicationController
   before_action :set_student
 
+  def index
+    @students = Student.all
+  end
+
   def show
     respond_to do |format|
       format.html

@@ -38,9 +38,7 @@ class BooksController < ApplicationController
   end
 
   def checkout
-    p params
-    @book = Book.find(params[:book_id])
-    @book.check_out_book_to_student(params[:student_id])
+    Book.find(params[:book_id]).check_out_book_to_student(params[:student_id])
     redirect_to root_path
   end
 

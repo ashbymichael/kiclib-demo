@@ -2,7 +2,7 @@
 
 <div>
   <%= form_tag '',  id: 'co_book_form' do %>
-    <%= label_tag :book %>
+    <%= label_tag :book %><br />
     <%= text_field_tag :book, '', id: 'co_book_input' %>
     <%= button_tag 'Find Book', id: 'co_find_book_button' %>
   <% end %>
@@ -12,7 +12,7 @@
 </div>
 <div>
   <%= form_tag '', id: 'co_student_form' do %>
-    <%= label_tag :student %>
+    <%= label_tag :student %><br />
     <%= text_field_tag :student, '', id: 'co_student_input' %>
     <%= button_tag 'Find Student', id: 'co_find_student_button' %>
   <% end %>
