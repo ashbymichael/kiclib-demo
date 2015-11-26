@@ -1,6 +1,13 @@
 class StudentsController < ApplicationController
   before_action :set_student
 
+  def show
+    respond_to do |format|
+      format.html
+      format.json { render json: @student }
+    end
+  end
+
   def new
     @student = Student.new
   end

@@ -5,6 +5,13 @@ class BooksController < ApplicationController
     @books = Book.all
   end
 
+  def show
+    respond_to do |format|
+      format.html
+      format.json { render json: @book }
+    end
+  end
+
   def new
     @book = Book.new
   end
@@ -28,6 +35,13 @@ class BooksController < ApplicationController
   def destroy
     @book.destroy
     redirect_to books_path
+  end
+
+  def checkout
+    p params
+    @book = Book.find(params[:book_id])
+    @book.check_out_book_to_student(params[:student_id])
+    redirect_to root_path
   end
 
   private
