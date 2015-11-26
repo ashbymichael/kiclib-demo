@@ -7,7 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<header>
+  <span id="logo">KIC Library</span>
+  <ul class="nav-list">
+    <li><%= icon('book') %> Check in books</li>
+    <li><%= icon('cogs') %> Admin</li>
+  </ul>
+</header>
 <%= yield %>
 
 </body>

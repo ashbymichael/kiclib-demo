@@ -2,6 +2,23 @@
   display: none;
 }
 
+.nav-list {
+  display: inline-block;
+}
+
+.nav-list li {
+  display: inline-block;
+  margin-right: 1.5rem;
+}
+
+header {
+  border-bottom: 1px solid #ccc;
+}
+
+#logo {
+  font-size: 2em;
+}
+
 #co_student_div {
   margin-top: 1rem;
   min-height: 3rem;
