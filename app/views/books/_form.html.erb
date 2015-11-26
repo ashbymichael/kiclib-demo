@@ -1,7 +1,7 @@
 <%= form_for @book do |f| %>
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title, id: @book.id, placeholder: @book.title %>
+    <%= f.text_field :title, id: @book.id, placeholder: @book.title, autofocus: true %>
   </div>
   <div class="actions">
     <%= f.submit "Submit" %>

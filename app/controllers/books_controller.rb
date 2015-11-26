@@ -42,6 +42,14 @@ class BooksController < ApplicationController
     redirect_to root_path
   end
 
+  def find_book
+    if Book.exists?(params[:book])
+      render json: Book.find(params[:book])
+    elsif Book.exists?(['title LIKE ?', "%#{params[:book]}%"])
+      render json: Book.where("title LIKE ?", "%#{params[:book]}%")
+    end
+  end
+
   private
     def book_params
       params.require(:book).permit(:title)
