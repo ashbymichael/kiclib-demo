@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20151126193348) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "books", force: :cascade do |t|
     t.string   "title"
     t.datetime "due"
@@ -21,7 +24,7 @@ ActiveRecord::Schema.define(version: 20151126193348) do
     t.integer  "student_id"
   end
 
-  add_index "books", ["student_id"], name: "index_books_on_student_id"
+  add_index "books", ["student_id"], name: "index_books_on_student_id", using: :btree
 
   create_table "students", force: :cascade do |t|
     t.string   "name"
@@ -38,4 +41,5 @@ ActiveRecord::Schema.define(version: 20151126193348) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "books", "students"
 end
