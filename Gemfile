@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.2.3'
 gem 'rails'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
@@ -10,6 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt'
 gem 'font-awesome-sass'
+gem 'puma'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
