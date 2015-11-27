@@ -26,3 +26,5 @@ group :development, :test do
   gem 'capybara'
   gem 'selenium-webdriver'
 end
+
+gem 'rails_12factor', group: :production
