@@ -7,4 +7,8 @@ class Book < ActiveRecord::Base
     update_attributes(student_id: student, due: Time.now + LENGTH)
   end
 
+
+  def check_in_book
+    update_attributes(student_id: nil, due: nil)
+  end
 end

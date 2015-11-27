@@ -42,6 +42,11 @@ class BooksController < ApplicationController
     redirect_to root_path
   end
 
+  def checkin
+    Book.find(params[:book_id]).check_in_book
+    redirect_to checkin_path
+  end
+
   def find_book
     if Book.exists?(params[:book])
       render json: Book.find(params[:book])
