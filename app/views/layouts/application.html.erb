@@ -10,7 +10,7 @@
 <header>
   <span id="logo"><%= link_to 'KIC Berkeley Library', root_path  %></span>
   <ul class="nav-list">
-    <li><%= icon('book') %> Check in books</li>
+    <li><%= icon('book') %> <%= link_to "Check in Books", checkin_path %></li>
     <li><%= icon('cogs') %> <%= link_to "Admin", admin_path %></li>
   </ul>
 </header>
