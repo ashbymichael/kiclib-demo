@@ -4,7 +4,8 @@
   <%= form_tag '',  id: 'co_book_form' do %>
     <%= label_tag :book %><br />
     <%= text_field_tag :book, '', id: 'co_book_input' %>
-    <%= button_tag 'Find Book', id: 'co_find_book_button' %>
+    <%= button_tag (icon('search') + ' Find Book'),
+        id: 'co_find_book_button', class: 'small-button' %>
   <% end %>
 </div>
 <div id="co_book_div">
@@ -14,7 +15,8 @@
   <%= form_tag '', id: 'co_student_form' do %>
     <%= label_tag :student %><br />
     <%= text_field_tag :student, '', id: 'co_student_input' %>
-    <%= button_tag 'Find Student', id: 'co_find_student_button' %>
+    <%= button_tag (icon('search') + ' Find Student'),
+        id: 'co_find_student_button', class: 'small-button' %>
   <% end %>
 </div>
 <div id="co_student_div">
@@ -24,7 +26,8 @@
   <%= form_tag checkout_path do %>
     <%= hidden_field_tag :book_id, '', id: 'co_book_id_field' %>
     <%= hidden_field_tag :student_id, '', id: 'co_student_id_field' %>
-    <%= button_tag 'Check Out Book', id: 'checkout_button' %>
+    <%= button_tag 'Check Out Book', id: 'checkout_button',
+        class: 'large-button' %>
   <% end %>
 </div>
 

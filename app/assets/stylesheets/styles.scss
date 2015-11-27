@@ -1,9 +1,18 @@
+header {
+  border-bottom: 1px solid #ccc;
+}
+
+body {
+  padding: 0 1rem 0 1rem;
+}
+
 .private {
   display: none;
 }
 
 .nav-list {
   display: inline-block;
+  float: right;
 }
 
 .nav-list li {
@@ -11,8 +20,19 @@
   margin-right: 1.5rem;
 }
 
-header {
-  border-bottom: 1px solid #ccc;
+.small-button {
+  border-radius: .25rem;
+  background-color: inherit;
+  border: 1px solid #aaa;
+  padding: .25rem 1rem;
+}
+
+.large-button {
+  font-size: 1.5em;
+  border-radius: .25rem;
+  background-color: inherit;
+  border: 1px solid #aaa;
+  padding: .5rem 2rem;
 }
 
 #logo {
@@ -20,15 +40,19 @@ header {
 }
 
 #co_student_div {
-  margin-top: 1rem;
+  margin: 1rem 0 1rem 0;
   min-height: 3rem;
   border-radius: .25rem;
-  border: 1px solid #ccc;
+  border: 1px solid #aaa;
+  padding: .25rem;
+  box-shadow: inset 0px 0px 5px 1px rgba(159,185,224,1);
 }
 
 #co_book_div {
-  margin-top: 1rem;
+  margin: 1rem 0 1rem 0;
   min-height: 3rem;
   border-radius: .25rem;
-  border: 1px solid #ccc;
+  border: 1px solid #aaa;
+  padding: .25rem;
+  box-shadow: inset 0px 0px 5px 1px rgba(159,185,224,1);
 }
