@@ -1,9 +1,20 @@
 header {
+  // width: 100%;
   border-bottom: 1px solid #ccc;
+  background-color: rgba(237, 225, 65, 0.79);
 }
 
-body {
+header a {
+  color: black;
+  text-decoration: none;
+}
+  header a:hover {
+    text-decoration: underline;
+  }
+
+main {
   padding: 0 1rem 0 1rem;
+  // background-color: rgba(237, 225, 65, 0.79);
 }
 
 .private {
@@ -40,6 +51,8 @@ body {
 }
 
 #co_student_div {
+  width: 85%;
+  background-color: white;
   margin: 1rem 0 1rem 0;
   min-height: 3rem;
   border-radius: .25rem;
@@ -49,10 +62,16 @@ body {
 }
 
 #co_book_div {
+  width: 85%;
+  background-color: white;
   margin: 1rem 0 1rem 0;
   min-height: 3rem;
   border-radius: .25rem;
   border: 1px solid #aaa;
   padding: .25rem;
   box-shadow: inset 0px 0px 5px 1px rgba(159,185,224,1);
+}
+
+#checkout_button {
+  background-color: rgb(17, 110, 49);
 }

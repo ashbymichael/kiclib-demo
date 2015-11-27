@@ -8,13 +8,14 @@
 </head>
 <body>
 <header>
-  <span id="logo">KIC Berkeley Library</span>
+  <span id="logo"><%= link_to 'KIC Berkeley Library', root_path  %></span>
   <ul class="nav-list">
     <li><%= icon('book') %> Check in books</li>
-    <li><%= icon('cogs') %> Admin</li>
+    <li><%= icon('cogs') %><%= link_to " Admin", admin_path %></li>
   </ul>
 </header>
-<%= yield %>
-
+<main>
+  <%= yield %>
+</main>
 </body>
 </html>
