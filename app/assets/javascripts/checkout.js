@@ -13,8 +13,11 @@ $(document).ready(function() {
       $('#co_book_input').val('');
       if (Array.isArray(data)) {
         $('#co_book_div').html(generateBookList(data));
+      } else if (data.id === undefined){
+        $('#co_book_div').html("<span class='red'>" + data.message + "</span>");
+        $('#co_book_id_field').val('');
       } else {
-        $('#co_book_div').html(data.title);
+        $('#co_book_div').html("<span class='green'>" + data.title + "</span>");
         $('#co_book_id_field').val(data.id);
       }
     });
@@ -34,8 +37,13 @@ $(document).ready(function() {
       $('#co_student_input').val('');
       if (Array.isArray(data)) {
         $('#co_student_div').html(generateStudentList(data));
+      } else if (data.id === undefined) {
+        $('#co_student_div').html("<span class='red'>" + data.message
+                                  + "</span>");
+        $('#co_student_id_field').val(data.id);
       } else {
-        $('#co_student_div').html(data.name + " | " + data.contact);
+        $('#co_student_div').html("<span class='green'>" + data.name + " | " +
+                                  data.contact + "</span>");
         $('#co_student_id_field').val(data.id);
       }
     });
@@ -52,7 +60,7 @@ $(document).ready(function() {
     req.success(function(data){
       console.log(data);
       $('#co_book_input').val('');
-      $('#co_book_div').html(data.title);
+      $('#co_book_div').html("<span class='green'>" + data.title + "</span>");
       $('#co_book_id_field').val(data.id);
     });
   });
@@ -68,14 +76,15 @@ $(document).ready(function() {
     req.success(function(data){
       console.log(data);
       $('#co_student_input').val('');
-      $('#co_student_div').html(data.name + " | " + data.contact);
+      $('#co_student_div').html("<span class='green'>" + data.name + " | "
+                                + data.contact + "</span>");
       $('#co_student_id_field').val(data.id);
     });
   });
 });
 
 var generateStudentList = function(data) {
-  var result = "<ul>";
+  var result = "Please select a student: <ul class='red'>";
   for (var i = 0; i < data.length; i++) {
     result += ("<li><a href='#' data-student=" + data[i].id + ">" +
     data[i].name + "</a></li>");
@@ -85,10 +94,10 @@ var generateStudentList = function(data) {
 };
 
 var generateBookList = function(data) {
-  var result = "<ul>";
+  var result = "Please select a book: <ul class='red'>";
   for (var i = 0; i < data.length; i++) {
     result += ("<li><a href='#' data-book=" + data[i].id + ">" + data[i].id +
-    " | " + data[i].title + "</a></li>");
+               " | " + data[i].title + "</a></li>");
   }
   result += "</ul>";
   return result;

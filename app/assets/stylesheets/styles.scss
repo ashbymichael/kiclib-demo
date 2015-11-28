@@ -1,3 +1,7 @@
+body {
+  box-sizing: border-box;
+}
+
 header {
   padding: 0 1rem;
   border-bottom: 1px solid #ccc;
@@ -12,8 +16,17 @@ a {
     text-decoration: underline;
   }
 
+li {
+  list-style-type: none;
+}
+
 main {
   padding: 0 1rem;
+}
+
+.faded {
+  font-size: .85em;
+  color: #888;
 }
 
 .private {
@@ -45,30 +58,49 @@ main {
   padding: .5rem 2rem;
 }
 
+.green {
+  color: #0f7735;
+}
+
+.red {
+  color: rgb(136, 36, 14);
+}
+
 #logo {
   font-size: 2em;
 }
 
 #co_student_div {
-  width: 85%;
-  background-color: white;
-  margin: 1rem 0 1rem 0;
+  // width: 85%;
+  // background-color: white;
+  // margin: 1rem 0 1rem 0;
   min-height: 3rem;
-  border-radius: .25rem;
-  border: 1px solid #aaa;
-  padding: .25rem;
+  // border-radius: .25rem;
+  // border: 1px solid #aaa;
+  // padding: .25rem;
   // box-shadow: inset 0px 0px 5px 1px rgba(159,185,224,1);
 }
 
 #co_book_div {
-  width: 85%;
+  border-bottom: 1px solid #ccc;
+  // width: 85%;
+  // background-color: white;
+  // margin: 1rem 0 1rem 0;
+  min-height: 3rem;
+  // border-radius: .25rem;
+  // border: 1px solid #aaa;
+  padding: .25rem 0;
+  // box-shadow: inset 0px 0px 5px 1px rgba(159,185,224,1);
+}
+
+#co_console {
+  width: 24rem;
   background-color: white;
   margin: 1rem 0 1rem 0;
-  min-height: 3rem;
+  // min-height: 3rem;
   border-radius: .25rem;
   border: 1px solid #aaa;
   padding: .25rem;
-  // box-shadow: inset 0px 0px 5px 1px rgba(159,185,224,1);
 }
 
 #checkout_button {

@@ -50,8 +50,12 @@ class BooksController < ApplicationController
   def find_book
     if Book.exists?(params[:book])
       render json: Book.find(params[:book])
+    # elsif Book.exists?(title: params[:book])
+    #   render json: Book.find_by(title: params[:book])
     elsif Book.exists?(['title LIKE ?', "%#{params[:book]}%"])
       render json: Book.where("title LIKE ?", "%#{params[:book]}%")
+    else
+      render json: { message: "Couldn't find \"#{params[:book]}\"." }
     end
   end
 

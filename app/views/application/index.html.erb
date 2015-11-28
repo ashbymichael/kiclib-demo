@@ -8,9 +8,7 @@
         id: 'co_find_book_button', class: 'small-button' %>
   <% end %>
 </div>
-<div id="co_book_div">
 
-</div>
 <div>
   <%= form_tag '', id: 'co_student_form' do %>
     <%= label_tag :student %><br />
@@ -20,9 +18,18 @@
   <% end %>
   <%= icon 'plus' %> <%= link_to 'add new student', new_student_path %>
 </div>
-<div id="co_student_div">
 
+<div id="co_console">
+  <span class="faded">Book:</span>
+  <div id="co_book_div">
+
+  </div>
+  <span class="faded">Student:</span>
+  <div id="co_student_div">
+
+  </div>
 </div>
+
 <div>
   <%= form_tag checkout_path do %>
     <%= hidden_field_tag :book_id, '', id: 'co_book_id_field' %>

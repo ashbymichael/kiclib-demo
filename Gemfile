@@ -13,12 +13,6 @@ gem 'bcrypt'
 gem 'font-awesome-sass'
 gem 'puma'
 
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
