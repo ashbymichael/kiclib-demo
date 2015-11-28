@@ -17,8 +17,14 @@ class StudentsController < ApplicationController
   end
 
   def create
-    @student = Student.create(student_params)
-    redirect_to '/'
+    @student = Student.new(student_params)
+
+    if @student.save
+      redirect_to '/', notice: "#{@student.name} saved."
+    else
+      flash[:alert] = "Student not created."
+      render 'new'
+    end
   end
 
   def edit
