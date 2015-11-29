@@ -1,6 +1,9 @@
-<h2>Check out books</h2>
+<div id="checkout_container" class="pure-g">
+<div class="pure-u-1">
+  <h2>Check out books</h2>
+</div>
 
-<div>
+<div class="pure-u-1">
   <%= form_tag '',  id: 'co_book_form' do %>
     <%= label_tag :book %><br />
     <%= text_field_tag :book, '', id: 'co_book_input' %>
@@ -9,7 +12,7 @@
   <% end %>
 </div>
 
-<div>
+<div class="pure-u-1">
   <%= form_tag '', id: 'co_student_form' do %>
     <%= label_tag :student %><br />
     <%= text_field_tag :student, '', id: 'co_student_input' %>
@@ -19,7 +22,7 @@
   <%= icon 'plus' %> <%= link_to 'add new student', new_student_path %>
 </div>
 
-<div id="co_console">
+<div id="co_console" class="pure-u-1">
   <span class="faded">Book:</span>
   <div id="co_book_div">
 
@@ -30,7 +33,7 @@
   </div>
 </div>
 
-<div>
+<div class="pure-u-1">
   <%= form_tag checkout_path do %>
     <%= hidden_field_tag :book_id, '', id: 'co_book_id_field' %>
     <%= hidden_field_tag :student_id, '', id: 'co_student_id_field' %>
@@ -42,4 +45,5 @@
 <div class="private">
  <span id="book_params"></span>
  <span id="student_params"></span>
+</div>
 </div>

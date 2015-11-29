@@ -2,10 +2,35 @@ body {
   box-sizing: border-box;
 }
 
+
 header {
+  display: flex;
+  align-items: flex-end;
   padding: 0 1rem;
   border-bottom: 1px solid #ccc;
   background-color: rgba(237, 225, 65, 0.79);
+}
+
+#logo {
+  /*width: 75%;*/
+  font-size: 2em;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.nav {
+  /*width: 75%;*/
+  text-align: center;
+}
+
+.nav ul {
+  margin: 0;
+
+}
+
+.nav-list li {
+  display: inline-block;
+  margin-right: 1.5rem;
 }
 
 a {
@@ -18,6 +43,8 @@ a {
 
 li {
   list-style-type: none;
+  position: relative;
+  right: 1em;
 }
 
 main {
@@ -33,15 +60,7 @@ main {
   display: none;
 }
 
-.nav-list {
-  display: inline-block;
-  float: right;
-}
 
-.nav-list li {
-  display: inline-block;
-  margin-right: 1.5rem;
-}
 
 .small-button {
   border-radius: .25rem;
@@ -66,9 +85,7 @@ main {
   color: rgb(136, 36, 14);
 }
 
-#logo {
-  font-size: 2em;
-}
+
 
 #co_student_div {
   // width: 85%;
@@ -105,4 +122,26 @@ main {
 
 #checkout_button {
   background-color: rgb(48, 162, 87);
+}
+
+@media only screen and (min-width: 650px) {
+
+  #logo, .nav {
+    display: inline-block;
+    width: 49%;
+  }
+
+  #logo {
+    text-align: left;
+  }
+
+  .nav {
+    text-align: right;
+  }
+    .nav li {
+      position: relative;
+      left: 1.5em;
+    }
+
+
 }
