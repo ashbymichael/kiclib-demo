@@ -6,7 +6,7 @@
 <div class="pure-u-1">
   <%= form_tag '',  id: 'co_book_form' do %>
     <%= label_tag :book %><br />
-    <%= text_field_tag :book, '', id: 'co_book_input' %>
+    <%= text_field_tag :book, '', id: 'co_book_input', class: 'input' %>
     <%= button_tag (icon('search') + ' Find Book'),
         id: 'co_find_book_button', class: 'small-button' %>
   <% end %>
@@ -15,7 +15,7 @@
 <div class="pure-u-1">
   <%= form_tag '', id: 'co_student_form' do %>
     <%= label_tag :student %><br />
-    <%= text_field_tag :student, '', id: 'co_student_input' %>
+    <%= text_field_tag :student, '', id: 'co_student_input', class: 'input' %>
     <%= button_tag (icon('search') + ' Find Student'),
         id: 'co_find_student_button', class: 'small-button' %>
   <% end %>
