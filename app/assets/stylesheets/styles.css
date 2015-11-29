@@ -1,5 +1,6 @@
 body {
   box-sizing: border-box;
+  color: #444;
 }
 
 
@@ -9,11 +10,13 @@ header {
   padding: 0 1rem;
   border-bottom: 1px solid #ccc;
   background-color: rgba(237, 225, 65, 0.79);
+  color: #000;
 }
+
 
 #logo {
   /*width: 75%;*/
-  font-size: 2em;
+  font-size: 175%;
   text-align: center;
   vertical-align: middle;
 }
@@ -130,6 +133,14 @@ main {
 
 #checkout_button {
   background-color: rgb(48, 162, 87);
+  color: #fff;
+  text-shadow: 1px 1px #1f6620;
+}
+
+@media only screen and (min-width: 350px) {
+  #logo {
+    font-size: 200%;
+  }
 }
 
 @media only screen and (min-width: 650px) {
