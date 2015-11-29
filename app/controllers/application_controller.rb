@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def checkin
+    @checked_out_books = Book.where("student_id IS NOT NULL")
   end
 
   def current_user

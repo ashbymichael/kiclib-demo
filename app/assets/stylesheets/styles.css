@@ -55,6 +55,10 @@ main {
   padding: 0 1rem;
 }
 
+.form_partial {
+  margin: 1rem 0;
+}
+
 .faded {
   font-size: .85em;
   color: #888;
