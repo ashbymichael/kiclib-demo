@@ -1,4 +1,5 @@
 class Book < ActiveRecord::Base
+  validates :title, presence: true
   belongs_to :student
 
   LENGTH = 2.weeks
