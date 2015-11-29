@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :student do
-    name "MyString"
-contact "MyString"
+    sequence(:name) { |n| "student#{n}" }
+    sequence(:contact) { |n| "student#{n}@example.com" }
   end
 
 end

@@ -20,7 +20,8 @@ class StudentsController < ApplicationController
     @student = Student.new(student_params)
 
     if @student.save
-      redirect_to '/', notice: "#{@student.name} saved."
+      redirect_to '/', flash: {success: "\"#{@student.name}\"
+                               was successfully created."}
     else
       flash[:alert] = "Student not created."
       render 'new'
