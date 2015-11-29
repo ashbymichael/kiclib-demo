@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :book do
-    title "Title"
+    title { Faker::Lorem.sentence }
   end
 
 end
