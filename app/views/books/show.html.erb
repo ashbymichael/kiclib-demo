@@ -17,5 +17,7 @@
 </table>
 
 <% if @book.checked_out? %>
-  <button id="check_in_button">Check in</button>
+  <%= form_tag '/checkin' %>
+    <%= hidden_field_tag :book_id, @book.id %>
+    <%= button_tag "Check in Book" %>
 <% end %>
