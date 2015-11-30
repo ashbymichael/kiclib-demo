@@ -11,6 +11,7 @@ header {
   border-bottom: 1px solid #ccc;
   background-color: rgba(237, 225, 65, 0.79);
   color: #000;
+  margin-bottom: 1.5rem;
 }
 
 
@@ -38,6 +39,12 @@ header {
 
 .input {
   width: 8em;
+}
+
+.label {
+  color: #777;
+  font-weight: bold;
+  font-size: 115%;
 }
 
 a {
@@ -96,7 +103,9 @@ main {
   color: rgb(136, 36, 14);
 }
 
-
+#checkout_container h2{
+  margin-top: 0;
+}
 
 #co_student_div {
   // width: 85%;
@@ -135,6 +144,15 @@ main {
   background-color: rgb(48, 162, 87);
   color: #fff;
   text-shadow: 1px 1px #1f6620;
+}
+
+
+/*************************************
+Admin Page
+*************************************/
+
+#admin_list li {
+  margin: .5em 0;
 }
 
 @media only screen and (min-width: 350px) {

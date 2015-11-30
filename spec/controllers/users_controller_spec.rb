@@ -35,7 +35,7 @@ RSpec.describe UsersController, type: :controller do
         }.to_not change(User, :count)
       end
 
-      it "renders :new template" do
+      it "redirects to #new" do
         post :create, user: FactoryGirl.attributes_for(:invalid_user)
         expect(response).to redirect_to new_user_path
       end

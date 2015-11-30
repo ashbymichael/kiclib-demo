@@ -12,4 +12,9 @@ class Book < ActiveRecord::Base
   def check_in_book
     update_attributes(student_id: nil, due: nil)
   end
+
+  def checked_out?
+    return true if student_id
+    false
+  end
 end

@@ -1,0 +1,21 @@
+<table class="pure-table pure-table-bordered">
+  <tr>
+    <td class="label">Title:</td> <td><%= @book.title %></td>
+  </tr>
+  <tr>
+    <td class="label"> ID:</td> <td><%= @book.id %></td>
+  </tr>
+
+  <% if @book.checked_out? %>
+    <tr>
+      <td class="label"> Student:</td> <td><%= @book.student.name %> (<%= @book.student.contact %>)</td>
+    </tr>
+    <tr>
+      <td class="label"> Due:</td> <td><%= @book.due.strftime('%Y/%_m/%e %A') %></td>
+    </tr>
+  <% end %>
+</table>
+
+<% if @book.checked_out? %>
+  <button id="check_in_button">Check in</button>
+<% end %>
