@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
-  root      'application#index'
+  root      'library#index'
   resource  :session
   resources :users
   resources :books
   resources :students
 
   get  '/login'        => 'sessions#new'
-  get  '/admin'        => 'application#admin'
-  get  '/checkin'      => 'application#checkin'
+  get  '/logout'       => 'sessions#destroy'
+  get  '/admin'        => 'library#admin'
+  get  '/checkin'      => 'library#checkin'
   post '/checkin'      => 'books#checkin'
   post '/find_student' => 'students#find_student'
   post '/find_book'    => 'books#find_book'

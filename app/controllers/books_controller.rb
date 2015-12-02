@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :require_signin!
   before_action :set_book
 
   def index
