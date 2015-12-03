@@ -1,5 +1,5 @@
 class LibraryController < ApplicationController
-  before_action :require_signin!
+  before_action :require_signin
 
   def index
   end
