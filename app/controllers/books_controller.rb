@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :require_signin!
+  before_action :require_signin
   before_action :set_book
 
   def index
@@ -15,6 +15,7 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
+    @books = Book.order(id: :desc)
   end
 
   def create
