@@ -17,7 +17,13 @@
     <ul class="nav-list">
       <li><%= icon('book') %> <%= link_to "Return Books", checkin_path %></li>
       <li><%= icon('cogs') %> <%= link_to "Admin", admin_path %></li>
-      <li><%= link_to "Sign out", logout_path %></li>
+      <li>
+        <% if logged_in? %>
+          <%= link_to "Sign out", logout_path %>
+        <% else %>
+          <%= link_to "Sign in", login_path %>
+        <% end %>
+      </li>
     </ul>
   </nav>
 </header>

@@ -1,6 +1,12 @@
 class SessionsController < ApplicationController
 
   def new
+    if session[:user_id]
+      flash[:notice] = "You are already signed in."
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def create

@@ -9,7 +9,9 @@ feature "Logging in" do
     visit '/login'
     fill_in "Username", with: @user.username
     fill_in "Password", with: @user.password
-    click_on "Sign in"
+    within('main') do
+      click_button('Sign in')
+    end
     expect(page).to have_content("Hello, #{@user.username}")
   end
 
@@ -17,7 +19,9 @@ feature "Logging in" do
     visit '/login'
     fill_in "Username", with: Faker::Name.first_name
     fill_in "Password", with: @user.password
-    click_on "Sign in"
+    within('main') do
+      click_button('Sign in')
+    end
     expect(page).to have_content("Sorry,")
   end
 
@@ -25,7 +29,9 @@ feature "Logging in" do
     visit '/login'
     fill_in "Username", with: @user.username
     fill_in "Password", with: Faker::Lorem.word
-    click_on "Sign in"
+    within('main') do
+      click_button('Sign in')
+    end
     expect(page).to have_content("Sorry,")
   end
 
