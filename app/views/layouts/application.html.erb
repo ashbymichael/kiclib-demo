@@ -15,13 +15,13 @@
   <div id="logo"><%= link_to 'KIC Berkeley Library', root_path  %></div>
   <nav class="nav">
     <ul class="nav-list">
-      <li><%= icon('book') %> <%= link_to "Return Books", checkin_path %></li>
-      <li><%= icon('cogs') %> <%= link_to "Admin", admin_path %></li>
+      <li><%= icon('book') %><%= link_to " Return Books", checkin_path %></li>
+      <li><%= icon('cogs') %><%= link_to " Admin", admin_path %></li>
       <li>
         <% if logged_in? %>
-          <%= link_to "Sign out", logout_path %>
+          <%= icon('sign-out') %><%= link_to " Sign out", logout_path %>
         <% else %>
-          <%= link_to "Sign in", login_path %>
+          <%= icon('sign-in') %><%= link_to " Sign in", login_path %>
         <% end %>
       </li>
     </ul>
