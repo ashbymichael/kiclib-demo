@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :book do
-    title { Faker::Lorem.sentence }
+    sequence(:title) { |n| Faker::Lorem.sentence + n.to_s }
   end
 
 end

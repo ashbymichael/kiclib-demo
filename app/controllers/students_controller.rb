@@ -34,7 +34,7 @@ class StudentsController < ApplicationController
 
   def update
     if @student.update_attributes(student_params)
-      redirect_to '/'
+      redirect_to student_path(@student)
     else
       render 'edit'
     end
