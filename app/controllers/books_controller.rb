@@ -40,7 +40,11 @@ class BooksController < ApplicationController
   end
 
   def checkout
-    Book.find(params[:book_id]).check_out_book_to_student(params[:student_id])
+    book = Book.find(params[:book_id])
+    book.check_out_book_to_student(params[:student_id])
+
+    flash[:success] = "#{book.title} is due back on " +
+                     "#{book.due.strftime('%A, %_m/%e/%Y')}"
     redirect_to root_path
   end
 

@@ -3,6 +3,9 @@ body {
   color: #444;
 }
 
+main {
+  padding: 0 1rem;
+}
 
 header {
   display: flex;
@@ -37,6 +40,7 @@ header {
   margin-right: 1.5rem;
 }
 
+
 .input {
   width: 8em;
 }
@@ -61,9 +65,7 @@ li {
   right: 1em;
 }
 
-main {
-  padding: 0 1rem;
-}
+
 
 .form_partial {
   margin: 1rem 0;
@@ -103,6 +105,19 @@ main {
   color: rgb(136, 36, 14);
 }
 
+.success, .notice, .error {
+  padding: .5em;
+  margin: .5rem 0;
+  border-radius: .3rem;
+  width: 24rem;
+  text-align: center;
+}
+  .success {
+    color: #007817;
+    border: 1px solid #007817;
+    background-color: rgba(181, 242, 180, 0.75);
+  }
+
 #checkout_container h2{
   margin-top: 0;
 }
@@ -134,7 +149,7 @@ main {
   width: 24rem;
   background-color: white;
   margin: 1rem 0 1rem 0;
-  // min-height: 3rem;
+  /*min-height: 3rem;*/
   border-radius: .25rem;
   border: 1px solid #aaa;
   padding: .25rem;
