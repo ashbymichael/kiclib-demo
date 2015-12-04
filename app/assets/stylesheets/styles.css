@@ -118,9 +118,15 @@ li {
     background-color: rgba(181, 242, 180, 0.75);
   }
 
-#checkout_container h2{
-  margin-top: 0;
+#checkout_container {
+  width: 25rem;
+  /*border: 1px solid red;*/
+  margin: 0 auto;
 }
+
+  #checkout_container h2{
+    margin-top: 0;
+  }
 
 #co_student_div {
   // width: 85%;
@@ -149,7 +155,6 @@ li {
   width: 24rem;
   background-color: white;
   margin: 1rem 0 1rem 0;
-  /*min-height: 3rem;*/
   border-radius: .25rem;
   border: 1px solid #aaa;
   padding: .25rem;
@@ -159,6 +164,10 @@ li {
   background-color: rgb(48, 162, 87);
   color: #fff;
   text-shadow: 1px 1px #1f6620;
+}
+
+#checkout_button_div {
+  text-align: center;
 }
 
 
