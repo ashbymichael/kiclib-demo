@@ -4,13 +4,8 @@ describe "Adding books" do
   before do
     @user = FactoryGirl.create(:user)
     @book = FactoryGirl.build(:book)
-
-    visit login_path
-    fill_in('session[username]', with: @user.username)
-    fill_in('session[password]', with: @user.password)
-    within('main') do
-      click_button('Sign in')
-    end
+    
+    sign_in_as(@user)
   end
 
   it "loads the new book path (when logged in)" do
