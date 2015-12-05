@@ -11,8 +11,12 @@ module AuthenticationHelpers
   def controller_sign_in_as(user)
     request.session[:user_id] = user.id
   end
+
+  def controller_sign_out
+    request.session[:user_id] = nil
+  end
 end
 
 RSpec.configure do |c|
-  c.include AuthenticationHelpers 
+  c.include AuthenticationHelpers
 end
