@@ -42,7 +42,7 @@ class StudentsController < ApplicationController
 
   def destroy
     @student.destroy
-    redirect_to '/'
+    redirect_to students_path
   end
 
   def find_student

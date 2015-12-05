@@ -128,25 +128,70 @@ RSpec.describe StudentsController, type: :controller do
 
     it "redirects to /login if not logged in" do
       request.session[:user_id] = nil
-      get :edit, id: @student.id 
+      get :edit, id: @student.id
       expect(response).to redirect_to(login_path)
     end
   end
 
   describe "#update" do
+    before do
+      controller_sign_in_as(FactoryGirl.create(:user))
+      @student = FactoryGirl.create(:student)
+    end
+
     describe "with valid input" do
-      it "updates the student's attributes"
-      it "redirects to student's show page"
+      it "updates the student's attributes" do
+        new_name = Faker::Name.first_name
+        patch :update, id: @student.id, student: {name: new_name}
+
+        expect(Student.find(@student.id).name).to eq(new_name)
+      end
+
+      it "redirects to student's show page" do
+        patch :update, id: @student.id, student: {name: @student.name}
+
+        expect(response).to redirect_to(student_path(@student))
+      end
+
+      it "redirects to /login if not logged in" do
+        request.session[:user_id] = nil
+        patch :update, id: @student.id, student: {name: 'sldkfj'}
+        expect(response).to redirect_to(login_path)
+      end
     end
 
     describe "with invalid input" do
-      it "doesn't update the student's attributes"
-      it "renders :edit template"
+      it "doesn't update the student's attributes" do
+        patch :update, id: @student.id, student: {name: nil}
+
+        expect(Student.find(@student.id).name).to eq(@student.name)
+      end
+
+      it "renders :edit template" do
+        patch :update, id: @student.id, student: {name: nil}
+
+        expect(response).to render_template(:edit)
+      end
     end
   end
 
   describe "#destroy" do
-    it "deletes the user"
+    before do
+      controller_sign_in_as(@user)
+    end
+
+    it "deletes the student" do
+      student = FactoryGirl.create(:student)
+      expect {
+        delete :destroy, id: student
+      }.to change(Student, :count).by(-1)
+    end
+
+    it "redirects to students index" do
+      student = FactoryGirl.create(:student)
+      delete :destroy, id: student.id
+      expect(response).to redirect_to(students_path)
+    end
   end
 
   # TODO describe "#find_student"
