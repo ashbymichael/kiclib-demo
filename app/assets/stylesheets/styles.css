@@ -7,8 +7,18 @@ body {
   color: #444;
 }
 
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
 main {
-  padding: 0 1rem;
+  padding: 0 .5rem;
 }
 
 header {
@@ -119,9 +129,12 @@ li {
     background-color: rgba(181, 242, 180, 0.75);
   }
 
+/********************************
+Checkout Page
+********************************/
+
 #checkout_container {
-  width: 25rem;
-  /*border: 1px solid red;*/
+  max-width: 25rem;
   margin: 0 auto;
 }
 
@@ -153,7 +166,8 @@ li {
 }
 
 #co_console {
-  width: 24rem;
+  /*width: 18rem;*/
+  max-width: 24rem;
   background-color: white;
   margin: 1rem 0 1rem 0;
   border-radius: .25rem;
@@ -180,6 +194,11 @@ Admin Page
   margin: .5em 0;
 }
 
+
+/***************************************
+Media Queries
+***************************************/
+
 @media only screen and (min-width: 350px) {
   #logo {
     font-size: 200%;
@@ -194,14 +213,16 @@ Admin Page
   }
 
   #logo {
-    text-align: left;
+    float: left;
   }
 
   .nav {
-    text-align: right;
+    float: right;
+    /*text-align: right;*/
   }
     .nav li {
       position: relative;
+      top: 1em;
       left: 1.5em;
     }
 
