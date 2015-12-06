@@ -1,1 +1,5 @@
 <h2><%= @student.name %></h2>
+
+<div>
+  <%= link_to "Delete this student", student_path(@student), method: :delete, data: {confirm: "Are you sure you want to delete #{@student.name}?"} %>
+</div>
