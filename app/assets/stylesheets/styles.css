@@ -189,6 +189,7 @@ Checkout Page
   background-color: rgb(48, 162, 87);
   color: #fff;
   text-shadow: 1px 1px #1f6620;
+  border: none;
 }
 
 #checkout_button_div {
