@@ -54,7 +54,9 @@ class BooksController < ApplicationController
   end
 
   def checkin
-    Book.find(params[:book_id]).check_in_book
+    @book = Book.find(params[:book_id])
+    @book.check_in_book
+    flash[:success] = "Thank you. #{@book.title} was successfully checked in."
     redirect_to checkin_path
   end
 
