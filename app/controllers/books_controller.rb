@@ -45,12 +45,17 @@ class BooksController < ApplicationController
   end
 
   def checkout
-    book = Book.find(params[:book_id])
-    book.check_out_book_to_student(params[:student_id])
+    if !params[:book_id].empty? && !params[:student_id].empty?
+      book = Book.find(params[:book_id])
+      book.check_out_book_to_student(params[:student_id])
 
-    flash[:success] = "#{book.title} is due back on " +
-                     "#{book.due.strftime('%A, %_m/%e/%Y')}"
-    redirect_to root_path
+      flash[:success] = "#{book.title} is due back on " +
+                       "#{book.due.strftime('%A, %_m/%e/%Y')}"
+      redirect_to root_path
+    else
+      flash[:error] = "Please select a book and student"
+      redirect_to root_path
+    end
   end
 
   def checkin
