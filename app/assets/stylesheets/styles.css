@@ -70,16 +70,18 @@ a {
     text-decoration: underline;
   }
 
+table a {
+  text-decoration: underline;
+}
+
 li {
   list-style-type: none;
   position: relative;
   right: 1em;
 }
 
-
-
 .form_partial {
-  margin: 1rem 0;
+  margin: 1rem auto;
 }
 
 .faded {
@@ -89,23 +91,6 @@ li {
 
 .private {
   display: none;
-}
-
-
-
-.small-button {
-  border-radius: .25rem;
-  background-color: inherit;
-  border: 1px solid #aaa;
-  padding: .25rem 1rem;
-}
-
-.large-button {
-  font-size: 1.5em;
-  border-radius: .25rem;
-  background-color: inherit;
-  border: 1px solid #aaa;
-  padding: .5rem 2rem;
 }
 
 .green {
@@ -128,6 +113,31 @@ li {
     border: 1px solid #007817;
     background-color: rgba(181, 242, 180, 0.75);
   }
+
+/************************
+buttons
+*************************/
+
+.small-button {
+  border-radius: .25rem;
+  background-color: inherit;
+  border: 1px solid #aaa;
+  padding: .25rem 1rem;
+}
+
+.large-button {
+  font-size: 1.5em;
+  border-radius: .25rem;
+  background-color: inherit;
+  border: 1px solid #aaa;
+  padding: .5rem 2rem;
+}
+
+.list_button {
+  background-color: inherit;
+  border: 1px solid #aaa;
+  border-radius: .25rem;
+}
 
 /********************************
 Checkout Page
@@ -185,6 +195,14 @@ Checkout Page
   text-align: center;
 }
 
+/************************************
+Check in Page
+************************************/
+
+#checkin_container {
+  max-width: 25rem;
+  margin: 0 auto;
+}
 
 /*************************************
 Admin Page

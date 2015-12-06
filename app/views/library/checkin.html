@@ -1,18 +1,20 @@
-<h2>Return book</h2>
+<div id="checkin_container">
+  <h2>Return book</h2>
 
-<div>
-  <%= form_tag '',  id: 'ci_checkin_form' do %>
-    <%= label_tag :book %><br />
-    <%= text_field_tag :book, '', id: 'ci_book_input' %>
-    <%= button_tag (icon('search') + ' Find Book'),
-        id: 'ci_find_book_button', class: 'small-button' %>
-  <% end %>
-</div>
-<div id="ci_book_div">
+  <div>
+    <%= form_tag '',  id: 'ci_checkin_form' do %>
+      <%= label_tag :book %><br />
+      <%= text_field_tag :book, '', id: 'ci_book_input' %>
+      <%= button_tag (icon('search') + ' Find Book'),
+          id: 'ci_find_book_button', class: 'small-button' %>
+    <% end %>
+  </div>
+  <div id="ci_book_div">
 
-</div>
+  </div>
 
-<div class="form_partial">
-  Checked out books:
-  <%= render 'checked_out_books_list' %>
+  <div class="form_partial">
+    Checked out books:
+    <%= render 'checked_out_books_list' %>
+  </div>
 </div>

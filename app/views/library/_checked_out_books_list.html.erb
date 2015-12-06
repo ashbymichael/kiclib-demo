@@ -3,7 +3,7 @@
     <tr>
       <th>#</th>
       <th>Title</th>
-      <th>Due</th>
+      <!-- <th>Due</th> -->
       <th></th>
     </tr>
   </thead>
@@ -11,7 +11,7 @@
     <tr>
       <td><%= book.id %></td>
       <td><%= link_to book.title, book_path(book) %></td>
-      <td><%= book.due.strftime('%Y/%_m/%e %A') %></td>
+      <!-- <td><%# book.due.strftime('%Y/%_m/%e %A') %></td> -->
       <td><%= form_tag '/checkin' %>
             <%= hidden_field_tag 'book_id', book.id %>
             <%= button_tag "Check in", class: "list_button" %>
