@@ -9,8 +9,13 @@
           id: 'ci_find_book_button', class: 'small-button' %>
     <% end %>
   </div>
+
   <div id="ci_book_div">
 
+    <%= form_tag checkin_path do %>
+      <%= hidden_field_tag :book_id, '', id: 'ci_book_id_field' %>
+      <%= button_tag 'Check in', class: 'large-button' %>
+    <% end %>
   </div>
 
   <div class="form_partial">
