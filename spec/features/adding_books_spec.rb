@@ -4,7 +4,7 @@ describe "Adding books" do
   before do
     @user = FactoryGirl.create(:user)
     @book = FactoryGirl.build(:book)
-    
+
     sign_in_as(@user)
   end
 
@@ -45,8 +45,10 @@ describe "Adding books" do
   end
 
   it "redirects if not logged in" do
+    visit admin_path
     click_on('Sign out')
     visit new_book_path
+    
     expect(page).to have_content('You need to sign in')
     expect(current_path).to eq('/login')
   end

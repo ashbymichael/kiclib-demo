@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature "Authorization" do
 
-  describe "signed in" do
+  describe "when signed in" do
     before do
       @user = FactoryGirl.create(:user)
       visit login_path
@@ -19,10 +19,8 @@ feature "Authorization" do
     end
 
     it "has a 'sign out' link" do
-      visit '/'
-      within('header') do
-        expect(page).to have_link('Sign out')
-      end
+      visit admin_path
+      expect(page).to have_link('Sign out')
     end
 
     it "can't access login_path" do
@@ -48,12 +46,10 @@ feature "Authorization" do
     end
   end
 
-  describe "not signed in" do
+  describe "when not signed in" do
     it "has a 'sign in' link" do
       visit root_path
-      within('header') do
-        expect(page).to have_link('Sign in')
-      end
+      expect(page).to have_button('Sign in')
     end
 
     it "has no 'sign out' link" do
@@ -63,7 +59,7 @@ feature "Authorization" do
 
     it "can access login_path" do
       visit login_path
-      expect(page).to have_content('Sign in')
+      # expect(page).to have_content('Sign in')
       expect(current_path).to eq('/login')
     end
 
