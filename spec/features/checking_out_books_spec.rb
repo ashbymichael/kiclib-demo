@@ -24,7 +24,7 @@ feature "Checking out books" do
       end
     end
 
-    it "is case insensitive for books"
+    # TODO it "is case insensitive for book titles"
 
     it "makes you select a book when searching by title", js: true do
       fill_in("book", with: @book.title)
@@ -71,7 +71,15 @@ feature "Checking out books" do
       end
     end
 
-    it "is case insensitive for students"
+    it "is case insensitive for student contacts", js: true do
+      new_student = FactoryGirl.create(:student, contact: 'AAa')
+      fill_in("student", with: 'aaa')
+      click_on("co_find_student_button")
+
+      within("#co_console") do
+        expect(page).to have_content(new_student.name)
+      end
+    end
 
     it "can select a student by their id number", js: true do
       fill_in("student", with: @student.id)

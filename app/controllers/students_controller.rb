@@ -48,8 +48,9 @@ class StudentsController < ApplicationController
   def find_student
     if Student.exists?(params[:student])
       render json: Student.find(params[:student])
-    elsif Student.exists?(['contact LIKE ?', "%#{params[:student]}%"])
-      render json: Student.where("contact LIKE ?", "%#{params[:student]}%")
+    elsif Student.exists?(['contact LIKE ?', "%#{params[:student].downcase}%"])
+      render json: Student.where("contact LIKE ?",
+                                 "%#{params[:student].downcase}%")
     elsif Student.exists?(['name LIKE ?', "%#{params[:student]}%"])
       render json: Student.where("name LIKE ?", "%#{params[:student]}%")
     else
