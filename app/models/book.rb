@@ -4,8 +4,8 @@ class Book < ActiveRecord::Base
 
   LENGTH = 2.weeks
 
-  def check_out_book_to_student(student)
-    update_attributes(student_id: student, due: Time.now + LENGTH)
+  def check_out_book_to_student(student_id)
+    update_attributes(student_id: student_id, due: Time.now + LENGTH)
   end
 
 

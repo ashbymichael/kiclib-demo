@@ -5,7 +5,7 @@ feature "Checking in books:" do
     @user = FactoryGirl.create(:user)
     @student = FactoryGirl.create(:student)
     @book = FactoryGirl.create(:book)
-    @book.check_out_book_to_student(@student)
+    @book.update_attributes(student_id: @student.id, due: Time.now + 2.weeks)
 
     visit login_path
     fill_in('session[username]', with: @user.username)
@@ -37,10 +37,30 @@ feature "Checking in books:" do
   end
 
   describe "Clicking 'Check in' button" do
-    it "checks a book in"
+    it "checks a book in", js: true do
+      fill_in("book", with: @book.id)
+      click_button("ci_find_book_button")
+
+      within("#ci_book_div") do
+        click_button("Check in")
+      end
+
+      @book.reload
+      expect(@book.checked_out?).to be(false)
+    end
   end
 
   describe "Clicking 'Check in' in the books list" do
-    it "checks the book in"
+    it "checks the book in", js: true do
+      fill_in("book", with: @book.id)
+      click_button("ci_find_book_button")
+
+      within("#checked_out_books_div") do
+        click_button("Check in")
+      end
+
+      @book.reload
+      expect(@book.checked_out?).to be(false)
+    end
   end
 end
