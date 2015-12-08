@@ -16,7 +16,7 @@ feature "Checking in books:" do
   end
 
   describe "Return Books Page" do
-    it "finds books by title", js: true do
+    it "finds books by id", js: true do
       fill_in("book", with: @book.id)
       click_button("ci_find_book_button")
 
@@ -25,7 +25,15 @@ feature "Checking in books:" do
       end
     end
 
-    it "finds a book by id"
+    it "finds books by title", js: true do
+      fill_in("book", with: @book.title)
+      click_button("ci_find_book_button")
+
+      within("#ci_book_div") do
+        expect(page).to have_content(@book.title)
+      end
+    end
+
   end
 
   describe "Clicking 'Check in' button" do

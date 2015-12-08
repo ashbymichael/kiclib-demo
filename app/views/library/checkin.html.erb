@@ -2,7 +2,7 @@
   <h2>Return book</h2>
 
   <div>
-    <%= form_tag '',  id: 'ci_checkin_form' do %>
+    <%= form_tag '',  id: 'ci_checkin_book_form' do %>
       <%= label_tag :book %><br />
       <%= text_field_tag :book, '', id: 'ci_book_input' %>
       <%= button_tag (icon('search') + ' Find Book'),
@@ -14,6 +14,7 @@
 
     <%= form_tag checkin_path do %>
       <%= hidden_field_tag :book_id, '', id: 'ci_book_id_field' %>
+      <%= hidden_field_tag :book_title, '', id: 'ci_book_title_field' %>
       <%= button_tag 'Check in', class: 'large-button' %>
     <% end %>
   </div>

@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :require_signin
-  before_action :set_book
+  before_action :set_book, except: :checkin
 
   def index
     @books = Book.all
