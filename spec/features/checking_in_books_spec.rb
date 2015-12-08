@@ -5,7 +5,7 @@ feature "Checking in books:" do
     @user = FactoryGirl.create(:user)
     @student = FactoryGirl.create(:student)
     @book = FactoryGirl.create(:book)
-    @book.update_attributes(student_id: @student.id, due: Time.now + 2.weeks)
+    @book.check_out_book_to_student(@student.id)
 
     visit login_path
     fill_in('session[username]', with: @user.username)
@@ -34,6 +34,17 @@ feature "Checking in books:" do
       end
     end
 
+    it "tells user if book is not checked out", js: true do
+      @book.check_in_book
+      expect(@book.checked_out?).to be(false)
+
+      fill_in("book", with: @book.id)
+      click_button("ci_find_book_button")
+
+      within("#ci_book_div") do
+        expect(page).to have_content("#{@book.title} is not checked out.")
+      end
+    end
   end
 
   describe "Clicking 'Check in' button" do
