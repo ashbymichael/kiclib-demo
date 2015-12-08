@@ -17,4 +17,9 @@ RSpec.describe Student, type: :model do
     FactoryGirl.create(:student, contact: 'duplicate')
     expect(FactoryGirl.build(:student, contact: 'duplicate')).to_not be_valid
   end
+
+  it "sets contact info to lower case" do
+    student = FactoryGirl.create(:student, contact: "AAa")
+    expect(student.contact).to eq('aaa')
+  end
 end
