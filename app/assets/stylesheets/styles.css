@@ -21,41 +21,10 @@ main {
   padding: 0 .5rem;
 }
 
-header {
-  display: flex;
-  align-items: flex-end;
-  padding: 0 1rem;
-  border-bottom: 2px solid #fbfb72;
-  background-color: #fbfb72;
-  color: #000;
-  margin-bottom: 1.5rem;
+
+.centered {
+  margin: 0 auto;
 }
-
-
-#logo {
-  font-family: 'Roboto', 'sans-serif';
-  font-weight: 400;
-  font-size: 175%;
-  letter-spacing: -.5px;
-  text-align: center;
-  vertical-align: middle;
-}
-
-.nav {
-  /*font-family: 'Roboto', 'sans-serif';
-  font-weight: 200;*/
-  text-align: center;
-}
-
-.nav ul {
-  margin: 0;
-}
-
-.nav-list li {
-  display: inline-block;
-  margin-right: 1.5rem;
-}
-
 
 .input {
   width: 8em;
@@ -112,7 +81,7 @@ Flash Messages
 
 .success, .notice, .error {
   padding: .5em;
-  margin: .5rem 0;
+  margin: .5rem auto;
   border-radius: .3rem;
   max-width: 24rem;
   text-align: center;
@@ -120,17 +89,57 @@ Flash Messages
 
 .success {
   color: #007817;
-  /*border: 1px solid #007817;*/
   background-color: rgba(181, 242, 180, 0.75);
 }
 
 .error {
   color: #780000;
-  /*border: 1px solid #780000;*/
   background-color: rgba(242, 180, 180, 0.75);
 }
 
+.notice {
+  color: #7e5c10;
+  background-color: rgba(238, 241, 92, 0.75);
+}
 
+/*******************************************
+layout header
+********************************************/
+
+header {
+  display: flex;
+  align-items: flex-end;
+  padding: 0 1rem;
+  border-bottom: 2px solid #fbfb72;
+  background-color: #fbfb72;
+  color: #000;
+  margin-bottom: 1.5rem;
+}
+
+
+#logo {
+  font-family: 'Roboto', 'sans-serif';
+  font-weight: 400;
+  font-size: 175%;
+  letter-spacing: -.5px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.nav {
+  /*font-family: 'Roboto', 'sans-serif';
+  font-weight: 200;*/
+  text-align: center;
+}
+
+.nav ul {
+  margin: 0;
+}
+
+.nav-list li {
+  display: inline-block;
+  margin-right: 1.5rem;
+}
 
 /************************
 buttons
