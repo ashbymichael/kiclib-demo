@@ -45,7 +45,7 @@ class BooksController < ApplicationController
   end
 
   def checkout
-    if !params[:book_id].empty? && !params[:student_id].empty?
+    if checkout_params_ok?
       book = Book.find(params[:book_id])
       book.check_out_book_to_student(params[:student_id])
 
@@ -84,5 +84,11 @@ class BooksController < ApplicationController
 
     def set_book
       @book = Book.find(params[:id]) if params[:id]
+    end
+
+    def checkout_params_ok?
+      return true if params[:book_id] && !params[:book_id].empty? &&
+                     params[:student_id] && !params[:student_id].empty?
+      false
     end
 end
