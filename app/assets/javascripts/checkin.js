@@ -34,13 +34,14 @@ $(document).ready(function() {
 });
 
 var generateCheckedOutBookList = function(data) {
-  var result = "Please select a book: <ul class='red'>";
+  var result = "Please select a book: <ul>";
   for (var i = 0; i < data.length; i++) {
     if(data[i].student_id !== null) {
-      result += ("<li><a href='#' data-book=" + data[i].id + ">" + data[i].id +
-                 " | " + data[i].title + "</a></li>");
+      result += ("<li><a href='books/" + data[i].id + "' data-book=" +
+                 data[i].id + ">" + data[i].id + " | " + data[i].title +
+                 "</a></li>");
     } else {
-      result += ("<li>" + data[i].id + " | " + data[i].title +
+      result += ("<li class='faded'>" + data[i].id + " | " + data[i].title +
                  " is not checked out." + "</li>");
     }
   }
