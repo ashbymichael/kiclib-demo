@@ -75,6 +75,10 @@ li {
   color: rgb(136, 36, 14);
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 /*******************************
 Flash Messages
 *******************************/
@@ -127,8 +131,6 @@ header {
 }
 
 .nav {
-  /*font-family: 'Roboto', 'sans-serif';
-  font-weight: 200;*/
   text-align: center;
 }
 
@@ -180,14 +182,14 @@ Checkout Page
   }
 
 #co_student_div {
-  // width: 85%;
-  // background-color: white;
-  // margin: 1rem 0 1rem 0;
+  /*width: 85%;
+  background-color: white;
+  margin: 1rem 0 1rem 0;*/
   min-height: 3rem;
-  // border-radius: .25rem;
-  // border: 1px solid #aaa;
-  // padding: .25rem;
-  // box-shadow: inset 0px 0px 5px 1px rgba(159,185,224,1);
+  /*border-radius: .25rem;
+  border: 1px solid #aaa;
+  padding: .25rem;
+  box-shadow: inset 0px 0px 5px 1px rgba(159,185,224,1);*/
 }
 
 #co_book_div {
@@ -203,7 +205,6 @@ Checkout Page
 }
 
 #co_console {
-  /*width: 18rem;*/
   max-width: 24rem;
   background-color: white;
   margin: 1rem 0 1rem 0;
@@ -230,6 +231,10 @@ Check in Page
 #checkin_container {
   max-width: 25rem;
   margin: 0 auto;
+}
+
+#ci_form_div {
+  /*visibility: hidden;*/
 }
 
 /*************************************

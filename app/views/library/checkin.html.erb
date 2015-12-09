@@ -14,12 +14,13 @@
     <div id="ci_book_div">
 
     </div>
-
-    <%= form_tag checkin_path do %>
-      <%= hidden_field_tag :book_id, '', id: 'ci_book_id_field' %>
-      <%= hidden_field_tag :book_title, '', id: 'ci_book_title_field' %>
-      <%= button_tag 'Check in', class: 'large-button' %>
-    <% end %>
+    <div id="ci_form_div" class="hidden">
+      <%= form_tag checkin_path do %>
+        <%= hidden_field_tag :book_id, '', id: 'ci_book_id_field' %>
+        <%= hidden_field_tag :book_title, '', id: 'ci_book_title_field' %>
+        <%= button_tag 'Check in', class: 'large-button' %>
+      <% end %>
+    </div>
   </div>
 
   <div id="checked_out_books_div" class="form_partial">

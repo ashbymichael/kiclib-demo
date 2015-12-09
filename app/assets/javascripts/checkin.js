@@ -22,6 +22,7 @@ $(document).ready(function() {
       } else {
         if(data.student_id !== null) {
           $('#ci_book_div').html(data.id + " | " + data.title);
+          $('#ci_form_div').removeClass("hidden");
           $('#ci_book_id_field').val(data.id);
         } else {
           $('#ci_book_div').html(data.id + " | " + data.title +
@@ -31,6 +32,11 @@ $(document).ready(function() {
       }
     });
   });
+
+  // $('#ci_book_id_field').on('change', function(){
+  //   console.log(this);
+  //   $('#ci_form_div').toggle();
+  // });
 });
 
 var generateCheckedOutBookList = function(data) {
