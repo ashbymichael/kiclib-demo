@@ -34,11 +34,24 @@ feature "Checking in books:" do
       end
     end
 
-    it "tells user if book is not checked out", js: true do
+    it "tells user if book is not checked out with 1 result", js: true do
       @book.check_in_book
       expect(@book.checked_out?).to be(false)
 
       fill_in("book", with: @book.id)
+      click_button("ci_find_book_button")
+
+      within("#ci_book_div") do
+        expect(page).to have_content("#{@book.title} is not checked out.")
+      end
+    end
+
+    it "tells user book is not checked out with multiple results", js: true do
+      @book.check_in_book
+      expect(@book.checked_out?).to be(false)
+      FactoryGirl.create(:book, title: @book.title)
+
+      fill_in("book", with: @book.title)
       click_button("ci_find_book_button")
 
       within("#ci_book_div") do
@@ -52,7 +65,7 @@ feature "Checking in books:" do
       fill_in("book", with: @book.id)
       click_button("ci_find_book_button")
 
-      within("#ci_book_div") do
+      within("#ci_book_info_form_div") do
         click_button("Check in")
       end
 
