@@ -15,6 +15,7 @@ $(document).ready(function() {
       $('#ci_book_input').val('');
       if (Array.isArray(data)) {
         $('#ci_book_div').html(generateCheckedOutBookList(data));
+        $('#ci_form_div').addClass("hidden");
       } else if(data.id === undefined) {
         $('#ci_book_div').html("<span class='red'>" +
                                   data.message + "</span>");
@@ -28,15 +29,11 @@ $(document).ready(function() {
           $('#ci_book_div').html(data.id + " | " + data.title +
                                  " is not checked out.");
           $('#ci_book_id_field').val('');
+          $('#ci_form_div').addClass("hidden");
         }
       }
     });
   });
-
-  // $('#ci_book_id_field').on('change', function(){
-  //   console.log(this);
-  //   $('#ci_form_div').toggle();
-  // });
 });
 
 var generateCheckedOutBookList = function(data) {
