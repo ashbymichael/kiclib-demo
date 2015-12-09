@@ -58,6 +58,19 @@ feature "Checking in books:" do
         expect(page).to have_content("#{@book.title} is not checked out.")
       end
     end
+
+    it "hides the check in button when no book selected", js: true do
+      within("#ci_book_info_form_div") do
+        expect(page).to_not have_content('Check in')
+      end
+
+      fill_in("book", with: @book.id)
+      click_button("ci_find_book_button")
+
+      within("#ci_book_info_form_div") do
+        expect(page).to have_content('Check in')
+      end
+    end
   end
 
   describe "Clicking 'Check in' button" do
