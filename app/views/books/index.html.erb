@@ -1,7 +1,10 @@
-<ul>
-  <% @books.each do |book| %>
-    <li><%= book.id %> | <%= book.title %></li>
-  <% end %>
-</ul>
+<div class="container">
+  <ul>
+    <% @books.each do |book| %>
+      <li><%= book.id %> | <%= book.title %></li>
+    <% end %>
+  </ul>
 
-<%= icon('file') %> <%= link_to 'Download Books as CSV', books_path(format: :csv) %>
+  <%= icon('file') %> <%= link_to 'Download Books as CSV',
+                                  books_path(format: :csv) %>
+</div>
