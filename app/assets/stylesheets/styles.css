@@ -241,6 +241,12 @@ Check in Page
 Admin Page
 *************************************/
 
+#admin_container {
+  width: 85%;
+  max-width: 25em;
+  margin: 1rem auto;
+}
+
 #admin_list li {
   margin: .5em 0;
 }

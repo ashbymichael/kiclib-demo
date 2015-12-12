@@ -1,7 +1,14 @@
-<ul id="admin_list">
-  <li><%= icon('sign-out') %><%= link_to " Sign out", logout_path %></li>
-  <li><%= icon('circle-o') %> <%= link_to 'View all students', students_path %></li>
-  <li><%= icon('circle-o') %> <%= link_to 'Add a new student', new_student_path %></li>
-  <li><%= icon('circle-o') %> <%= link_to 'Add a new book', new_book_path %></li>
-  <li><%= icon('circle-o') %> See overdue books</li>
-</ul>
+<div id="admin_container">
+  <ul id="admin_list">
+    <li><%= icon('sign-out') %> <%= link_to " Sign out", logout_path %></li>
+    <li><%= icon('book') %> <%= link_to 'View all books', books_path %></li>
+    <li><%= icon('users') %> <%= link_to 'View all students',
+                                            students_path %></li>
+    <li><%= icon('user-plus') %> <%= link_to 'Add a new student',
+                                            new_student_path %></li>
+    <li><%= icon('book') %> <%= link_to 'Add a new book',
+                                            new_book_path %></li>
+
+    <li><%= icon('calendar') %> See overdue books</li>
+  </ul>
+</div>
