@@ -1,0 +1,5 @@
+<%- headers = ['ID', 'TITLE', 'DUE', 'BORROWER', 'CONTACT'] -%>
+<%= CSV.generate_line headers %>
+<%- @books.each do |book| -%>
+  <%= CSV.generate_line([book.id, book.title, book.due, (book.student.name if book.student), (book.student.contact if book.student)]) -%>
+<%- end -%>

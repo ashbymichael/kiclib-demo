@@ -4,6 +4,14 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
+
+    respond_to do |format|
+      format.html
+      format.csv do
+        headers['Content-Disposition'] = "attachment; filename=\"collection#{Time.now.strftime("%Y%-m%-d%H%M%S")}.csv\""
+        headers['Content-Type'] ||= 'text/csv'
+      end
+    end
   end
 
   def show
