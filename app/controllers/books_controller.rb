@@ -23,7 +23,7 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
-    @books = Book.order(id: :desc)
+    @books = Book.order(id: :desc).page params[:page]
   end
 
   def create

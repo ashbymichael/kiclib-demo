@@ -7,20 +7,18 @@ body {
   color: #444;
 }
 
+main {
+  padding: 0 .5rem;
+}
+
 .clearfix:before,
 .clearfix:after {
   content: "";
   display: table;
 }
-
 .clearfix:after {
   clear: both;
 }
-
-main {
-  padding: 0 .5rem;
-}
-
 
 .centered {
   margin: 0 auto;
@@ -109,7 +107,7 @@ Flash Messages
 
 .notice {
   color: #7e5c10;
-  background-color: rgba(238, 241, 92, 0.75);
+  background-color: #fbfb72;
 }
 
 /*******************************************
@@ -188,26 +186,12 @@ Checkout Page
   }
 
 #co_student_div {
-  /*width: 85%;
-  background-color: white;
-  margin: 1rem 0 1rem 0;*/
   min-height: 3rem;
-  /*border-radius: .25rem;
-  border: 1px solid #aaa;
-  padding: .25rem;
-  box-shadow: inset 0px 0px 5px 1px rgba(159,185,224,1);*/
 }
 
 #co_book_div {
   border-bottom: 1px solid #ccc;
-  // width: 85%;
-  // background-color: white;
-  // margin: 1rem 0 1rem 0;
   min-height: 3rem;
-  // border-radius: .25rem;
-  // border: 1px solid #aaa;
-  padding: .25rem 0;
-  // box-shadow: inset 0px 0px 5px 1px rgba(159,185,224,1);
 }
 
 #co_console {
@@ -272,7 +256,6 @@ Media Queries
 
   #logo, .nav {
     display: inline-block;
-    /*width: 49%;*/
   }
 
   #logo {
@@ -281,7 +264,6 @@ Media Queries
 
   .nav {
     float: right;
-    /*text-align: right;*/
   }
     .nav li {
       position: relative;

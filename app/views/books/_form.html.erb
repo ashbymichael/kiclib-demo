@@ -1,9 +1,8 @@
-<%= form_for @book do |f| %>
-  <div class="field">
+<%= form_for @book, html: {class: "pure-form"} do |f| %>
+  <div>
     <%= f.label :title %><br>
     <%= f.text_field :title, id: @book.id, placeholder: @book.title, autofocus: true %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Submit" %>
+
+    <%= f.submit "Submit", class: "pure-button" %>
   </div>
 <% end %>

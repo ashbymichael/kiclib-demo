@@ -1,5 +1,15 @@
-<h1>New Book</h1>
+<div class="container">
+  <h1>New Book</h1>
 
-<%= render 'form' %>
+  <div class="partial">
+    <%= render 'form' %>
+  </div>
 
-<%= render 'list' %>
+  <div class="partial">
+    <%= paginate @books %>
+  </div>
+
+  <div class="partial">
+    <%= render 'list' %>
+  </div>
+</div>
