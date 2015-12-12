@@ -11,13 +11,14 @@ describe "Adding books" do
   it "loads the new book path (when logged in)" do
     visit new_book_path
     expect(page).to have_content("New Book")
-    expect(current_path).to eq('/books/new')
+    expect(current_path).to eq("/books/new")
   end
 
   it "creates a new book with valid input" do
     visit new_book_path
     expect{
       fill_in('book[title]', with: Faker::Lorem.sentence)
+      fill_in('book[number]', with: Book.last.id + 1)
       click_button('Submit')
     }.to change(Book, :count).by(1)
   end
@@ -48,7 +49,7 @@ describe "Adding books" do
     visit admin_path
     click_on('Sign out')
     visit new_book_path
-    
+
     expect(page).to have_content('You need to sign in')
     expect(current_path).to eq('/login')
   end
