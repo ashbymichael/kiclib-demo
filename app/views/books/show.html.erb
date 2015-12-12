@@ -1,23 +1,29 @@
-<table class="pure-table pure-table-bordered">
-  <tr>
-    <td class="label">Title:</td> <td><%= @book.title %></td>
-  </tr>
-  <tr>
-    <td class="label"> ID:</td> <td><%= @book.id %></td>
-  </tr>
+<div class="container">
+<div class="partial">
+  <table class="pure-table pure-table-bordered">
+    <tr>
+      <td class="label">Title:</td> <td><%= @book.title %></td>
+    </tr>
+    <tr>
+      <td class="label"> ID:</td> <td><%= @book.id %></td>
+    </tr>
 
+    <% if @book.checked_out? %>
+      <tr>
+        <td class="label"> Student:</td> <td><%= @book.student.name %> (<%= @book.student.contact %>)</td>
+      </tr>
+      <tr>
+        <td class="label"> Due:</td> <td><%= @book.due.strftime('%Y/%_m/%e %A') %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<div>
   <% if @book.checked_out? %>
-    <tr>
-      <td class="label"> Student:</td> <td><%= @book.student.name %> (<%= @book.student.contact %>)</td>
-    </tr>
-    <tr>
-      <td class="label"> Due:</td> <td><%= @book.due.strftime('%Y/%_m/%e %A') %></td>
-    </tr>
+    <%= form_tag '/checkin', class: 'pure-form' %>
+      <%= hidden_field_tag :book_id, @book.id %>
+      <%= button_tag "Check in Book", class: 'pure-button' %>
   <% end %>
-</table>
-
-<% if @book.checked_out? %>
-  <%= form_tag '/checkin' %>
-    <%= hidden_field_tag :book_id, @book.id %>
-    <%= button_tag "Check in Book" %>
-<% end %>
+</div>
+</div>
