@@ -31,7 +31,7 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to new_book_path
     else
-      @books = Book.order(id: :desc)
+      @books = Book.order(id: :desc).page params[:page]
       render :new
     end
   end
@@ -85,7 +85,7 @@ class BooksController < ApplicationController
 
   private
     def book_params
-      params.require(:book).permit(:title)
+      params.require(:book).permit(:title, :number)
     end
 
     def set_book

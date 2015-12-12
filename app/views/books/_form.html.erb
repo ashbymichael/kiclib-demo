@@ -1,7 +1,14 @@
 <%= form_for @book, html: {class: "pure-form"} do |f| %>
   <div>
+    <p>
     <%= f.label :title %><br>
     <%= f.text_field :title, id: @book.id, placeholder: @book.title, autofocus: true %>
+    </p>
+
+    <p>
+      <%= f.label :number %><br>
+      <%= f.text_field :number, value: suggested_book_number %>
+    </p>
 
     <%= f.submit "Submit", class: "pure-button" %>
   </div>

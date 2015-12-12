@@ -172,6 +172,22 @@ buttons
   border-radius: .25rem;
 }
 
+.next a{
+  font-size: 90%;
+  padding: .25em .5em;
+  margin: 0 .25em;
+  border: 1px solid #aaa;
+  border-radius: .25rem;
+}
+
+.prev a{
+  font-size: 90%;
+  padding: .25em .5em;
+  margin: 0 .25em;
+  border: 1px solid #aaa;
+  border-radius: .25rem;
+}
+
 /********************************
 Checkout Page
 ********************************/
