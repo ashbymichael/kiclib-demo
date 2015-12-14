@@ -1,13 +1,13 @@
-<%= form_for @student do |f| %>
-  <div class="field">
+<%= form_for @student, class: 'pure-form' do |f| %>
+  <div class="form_div">
     <%= f.label :name %><br>
     <%= f.text_field :name, id: 'name_input' %>
   </div>
-  <div class="field">
+  <div class="form_div">
     <%= f.label :sid, "SID" %><br>
     <%= f.text_field :sid, id: 'sid_input' %>
   </div>
-  <div class="actions">
-    <%= f.submit "Submit" %>
+  <div class="form_div">
+    <%= f.submit "Submit", class: 'pure-button' %>
   </div>
 <% end %>

@@ -56,6 +56,10 @@ li {
   margin: 1rem auto;
 }
 
+.form_div {
+  margin: 1rem 0;
+}
+
 .container {
   with: 85%;
   max-width: 25rem;
