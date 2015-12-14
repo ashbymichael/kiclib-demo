@@ -74,10 +74,11 @@ class BooksController < ApplicationController
   end
 
   def find_book
+    clean_title = params[:book].gsub(/\s+/, '').downcase
     if Book.exists?(params[:book])
       render json: Book.find(params[:book])
-    elsif Book.exists?(['title LIKE ?', "%#{params[:book]}%"])
-      render json: Book.where("title LIKE ?", "%#{params[:book]}%")
+    elsif Book.exists?(['search_title LIKE ?', "%#{clean_title}%"])
+      render json: Book.where("search_title LIKE ?", "%#{clean_title}%")
     else
       render json: { message: "Couldn't find \"#{params[:book]}\"." }
     end

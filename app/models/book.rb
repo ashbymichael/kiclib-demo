@@ -2,6 +2,7 @@ class Book < ActiveRecord::Base
   validates :title, presence: true
   validates :number, presence: true, uniqueness: true
   belongs_to :student
+  before_save :make_searchable_title
 
   LENGTH = 2.weeks
 
@@ -18,4 +19,10 @@ class Book < ActiveRecord::Base
     return true if student_id
     false
   end
+
+  private
+    def make_searchable_title
+      self.search_title = title.gsub(/\s+/, '').downcase
+    end
+
 end
