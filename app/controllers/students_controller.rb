@@ -3,7 +3,7 @@ class StudentsController < ApplicationController
   before_action :set_student
 
   def index
-    @students = Student.all
+    @students = Student.order(id: :desc).page params[:page]
   end
 
   def show
@@ -66,7 +66,8 @@ class StudentsController < ApplicationController
 
   def upload
     Student.import(params[:file])
-    redirect_to root_url
+    flash[:success] = "Students uploaded"
+    redirect_to students_url
   end
 
   private

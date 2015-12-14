@@ -1,5 +1,13 @@
-<ul>
-  <% @students.each do |student| %>
-    <li><%= student.name %> | <%= student.contact %></li>
-  <% end %>
-</ul>
+<div class="container">
+  <h2>Students</h2>
+
+  <div class="partial">
+    <%= paginate @students %>
+  </div>
+  <div class="partial">
+    <%= render 'list' %>
+  </div>
+  <div class="partial">
+    <%= paginate @students %>
+  </div>
+</div>
