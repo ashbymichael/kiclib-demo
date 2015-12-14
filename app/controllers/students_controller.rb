@@ -60,6 +60,15 @@ class StudentsController < ApplicationController
     end
   end
 
+  def import
+
+  end
+
+  def upload
+    Student.import(params[:file])
+    redirect_to root_url
+  end
+
   private
     def student_params
       params.require(:student).permit(:name, :contact, :sid)

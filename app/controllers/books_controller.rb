@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :require_signin
-  before_action :set_book, except: :checkin
+  before_action :set_book, except: [:checkin, :update]
 
   def index
     @books = Book.all
@@ -28,8 +28,9 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
+
     if @book.save
-      redirect_to new_book_path
+      redirect_to new_book_url
     else
       @books = Book.order(id: :desc).page params[:page]
       render :new
@@ -49,7 +50,7 @@ class BooksController < ApplicationController
 
   def destroy
     @book.destroy
-    redirect_to books_path
+    redirect_to books_url
   end
 
   def checkout
@@ -59,10 +60,10 @@ class BooksController < ApplicationController
 
       flash[:success] = "#{book.title} is due back on " +
                        "#{book.due.strftime('%A, %_m/%e/%Y')}"
-      redirect_to root_path
+      redirect_to root_url
     else
       flash[:error] = "Please select a book and student"
-      redirect_to root_path
+      redirect_to root_url
     end
   end
 
@@ -70,7 +71,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:book_id])
     @book.check_in_book
     flash[:success] = "Thank you. #{@book.title} was successfully checked in."
-    redirect_to checkin_path
+    redirect_to checkin_url
   end
 
   def find_book
@@ -83,6 +84,8 @@ class BooksController < ApplicationController
       render json: { message: "Couldn't find \"#{params[:book]}\"." }
     end
   end
+
+  
 
   private
     def book_params
