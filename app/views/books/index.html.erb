@@ -1,8 +1,18 @@
 <div class="container">
+  <h2>Collection</h2>
+
+  <div class="partial">
+    <%= paginate @books %>
+  </div>
+
   <div class="partial">
     <%= render 'list' %>
   </div>
 
+  <div class="partial">
+    <%= paginate @books %>
+  </div>
+
   <%= icon('file') %> <%= link_to 'Download Books as CSV',
-                                    books_path(format: :csv) %>
+                                  books_path(format: :csv) %>
 </div>

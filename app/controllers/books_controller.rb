@@ -3,13 +3,12 @@ class BooksController < ApplicationController
   before_action :set_book, except: [:checkin, :update]
 
   def index
-    @books = Book.all
+    @books = Book.order(:number).page params[:page]
 
     respond_to do |format|
       format.html
       format.csv do
-        headers['Content-Disposition'] = "attachment; filename=\"collection#{Time.now.strftime("%Y%-m%-d%H%M%S")}.csv\""
-        headers['Content-Type'] ||= 'text/csv'
+        set_csv_headers
       end
     end
   end
@@ -98,5 +97,11 @@ class BooksController < ApplicationController
       return true if params[:book_id] && !params[:book_id].empty? &&
                      params[:student_id] && !params[:student_id].empty?
       false
+    end
+
+    def set_csv_headers
+      headers['Content-Disposition'] = "attachment; filename=" +
+        "\"collection#{Time.now.strftime("%Y%-m%-d%H%M%S")}.csv\""
+      headers['Content-Type'] ||= 'text/csv'
     end
 end
