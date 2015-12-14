@@ -1,5 +1,9 @@
-<h1>Edit Book</h1>
+<div class="container">
+  <h1>Edit Book</h1>
 
-<%= render 'form' %>
+  <div class="partial">
+    <%= render 'form' %>
+  </div>
 
-<%= link_to "Delete this book", book_path(@book), method: :delete %>
+  <%= link_to "Delete this book", book_path(@book), method: :delete %>
+</div>

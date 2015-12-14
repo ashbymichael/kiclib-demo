@@ -19,11 +19,14 @@
   </table>
 </div>
 
-<div>
+<div class="partial">
   <% if @book.checked_out? %>
     <%= form_tag '/checkin', class: 'pure-form' %>
       <%= hidden_field_tag :book_id, @book.id %>
       <%= button_tag "Check in Book", class: 'pure-button' %>
   <% end %>
+</div>
+<div>
+  <%= link_to "Edit book", edit_book_path(@book) %>
 </div>
 </div>
