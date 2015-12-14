@@ -258,7 +258,8 @@ Admin Page
 }
 
 #admin_list li {
-  margin: .5em 0;
+  font-size: 120%;
+  margin: .75em 0;
 }
 
 
