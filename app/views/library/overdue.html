@@ -1,0 +1,20 @@
+<div class="container">
+  <h2>Overdue Books</h2>
+
+  <table class="pure-table pure-table-striped">
+  <thead>
+    <th>Num.</th>
+    <th>Title</th>
+    <th>Due</th>
+    <!-- <th>Borrower</th> -->
+  </thead>
+  <% @overdue_books.each do |book| %>
+  <tr>
+    <td><%= book.number %></td>
+    <td><%= link_to book.title, book_path(book) %></td>
+    <td><%= book.due.strftime('%Y/%_m/%e %A') %></td>
+    <!-- <td><%= book.student.name %></td> -->
+  </tr>
+  <% end %>
+  </table>
+</div>

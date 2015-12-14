@@ -10,4 +10,8 @@ class LibraryController < ApplicationController
   def checkin
     @checked_out_books = Book.where("student_id IS NOT NULL")
   end
+
+  def overdue
+    @overdue_books = Book.where(["due < ?", DateTime.now])
+  end
 end

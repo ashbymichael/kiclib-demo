@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get  '/checkin'      => 'library#checkin'
   get  '/checkout'     => 'library#index'
   get  '/import'       => 'students#import'
+  get  '/overdue'      => 'library#overdue' 
   post '/checkin'      => 'books#checkin'
   post '/find_student' => 'students#find_student'
   post '/find_book'    => 'books#find_book'
