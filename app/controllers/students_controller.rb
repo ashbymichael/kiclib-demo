@@ -46,13 +46,15 @@ class StudentsController < ApplicationController
   end
 
   def find_student
-    if Student.exists?(params[:student])
-      render json: Student.find(params[:student])
-    elsif Student.exists?(['contact LIKE ?', "%#{params[:student].downcase}%"])
+    cleaned_student = params[:student].gsub(/\s+/, "").downcase
+    p cleaned_student
+    if Student.exists?(cleaned_student)
+      render json: Student.find(cleaned_student)
+    elsif Student.exists?(['contact LIKE ?', "%#{cleaned_student}%"])
       render json: Student.where("contact LIKE ?",
-                                 "%#{params[:student].downcase}%")
-    elsif Student.exists?(['name LIKE ?', "%#{params[:student]}%"])
-      render json: Student.where("name LIKE ?", "%#{params[:student]}%")
+                                 "%#{cleaned_student}%")
+    elsif Student.exists?(['search_name LIKE ?', "%#{cleaned_student}%"])
+      render json: Student.where("search_name LIKE ?", "%#{cleaned_student}%")
     else
       render json: { message: "Couldn't find \"#{params[:student]}\"." }
     end
@@ -60,7 +62,7 @@ class StudentsController < ApplicationController
 
   private
     def student_params
-      params.require(:student).permit(:name, :contact)
+      params.require(:student).permit(:name, :contact, :sid)
     end
 
     def set_student

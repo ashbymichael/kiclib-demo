@@ -77,7 +77,7 @@ $(document).ready(function() {
       console.log(data);
       $('#co_student_input').val('');
       $('#co_student_div').html("<span class='green'>" + data.name + " | "
-                                + data.contact + "</span>");
+                                + data.sid + "</span>");
       $('#co_student_id_field').val(data.id);
     });
   });
