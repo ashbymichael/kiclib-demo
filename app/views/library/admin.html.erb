@@ -1,15 +1,22 @@
 <div id="admin_container">
   <ul id="admin_list">
     <li><%= icon('sign-out') %> <%= link_to " Sign out", logout_path %></li>
+    <li>_</li>
     <li><%= icon('book') %> <%= link_to 'View all books', books_path %></li>
     <li><%= icon('users') %> <%= link_to 'View all students',
                                             students_path %></li>
+    <li>_</li>
     <li><%= icon('user-plus') %> <%= link_to 'Add a new student',
                                             new_student_path %></li>
     <li><%= icon('book') %> <%= link_to 'Add a new book',
                                             new_book_path %></li>
-
+    <li>_</li>
     <li><%= icon('calendar') %> <%= link_to 'See overdue books',
                                             overdue_path %></li>
+    <li>_</li>
+    <li><%= icon('download') %> <%= link_to 'Download Books as CSV',
+                                    books_path(format: :csv) %></li>
+    <li><%= icon('upload') %> <%= link_to 'Import students from CSV',
+                                          import_path %></li>
   </ul>
 </div>
