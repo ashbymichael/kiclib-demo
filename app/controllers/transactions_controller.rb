@@ -3,9 +3,10 @@ class TransactionsController < ApplicationController
     p params
     if checkout_params_ok?
       @transaction = Transaction.new(transaction_params)
-      @transaction.due = Time.now + 2.weeks 
+      @transaction.due = Time.now + 2.weeks
       if @transaction.save
-        flash[:success] = "Due on #{@transaction.due}"
+        flash[:success] = "#{Book.find(params[:transaction][:book_id]).title}" +
+                " is due back on #{@transaction.due.strftime('%A, %_m/%-d/%Y')}"
         redirect_to root_url
       else
         flash[:error] = "Book not checked out"
