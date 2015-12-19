@@ -2,6 +2,7 @@ class Book < ActiveRecord::Base
   validates :title, presence: true
   validates :number, presence: true, uniqueness: true
   belongs_to :student
+  has_many :transactions 
   before_save :make_searchable_title
 
   LENGTH = 2.weeks

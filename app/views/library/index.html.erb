@@ -19,7 +19,7 @@
     <%= button_tag (icon('search') + ' Find Student'),
         id: 'co_find_student_button', class: 'small-button' %>
   <% end %>
-  
+
 </div>
 
 <div id="co_console" class="pure-u-1">
@@ -34,10 +34,10 @@
 </div>
 
 <div id="checkout_button_div" class="pure-u-1">
-  <%= form_tag checkout_path do %>
-    <%= hidden_field_tag :book_id, '', id: 'co_book_id_field' %>
-    <%= hidden_field_tag :student_id, '', id: 'co_student_id_field' %>
-    <%= button_tag 'Check Out Book', id: 'checkout_button',
+  <%= form_for :transaction, url: checkout_path do |f| %>
+    <%= f.hidden_field :book_id, id: 'co_book_id_field' %>
+    <%= f.hidden_field :student_id, id: 'co_student_id_field' %>
+    <%= f.button 'Check Out Book', id: 'checkout_button',
         class: 'large-button'  %>
   <% end %>
 </div>
