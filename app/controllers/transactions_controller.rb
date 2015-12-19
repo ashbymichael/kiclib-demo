@@ -2,7 +2,8 @@ class TransactionsController < ApplicationController
   def create
     p params
     if checkout_params_ok?
-      @transaction = Transaction.new(transaction_params, due: Time.now + 2.weeks)
+      @transaction = Transaction.new(transaction_params)
+      @transaction.due = Time.now + 2.weeks 
       if @transaction.save
         flash[:success] = "Due on #{@transaction.due}"
         redirect_to root_url
