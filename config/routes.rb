@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users
   resources :books
   resources :students
+  resources :transactions 
 
   get  '/login'        => 'sessions#new'
   get  '/logout'       => 'sessions#destroy'

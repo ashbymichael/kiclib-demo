@@ -1,0 +1,12 @@
+<div class="container">
+  <h2>Checked Out Books</h2>
+  <ul>
+    <% @transactions.each do |trnsctn| %>
+      <li>
+        <%= trnsctn.book.title %> |
+        <%= trnsctn.student.name if trnsctn.student %> |
+        <%= trnsctn.due.strftime('%Y/%m/%-d') if trnsctn.due %>
+      </li>
+    <% end %>
+  </ul>
+</div>
