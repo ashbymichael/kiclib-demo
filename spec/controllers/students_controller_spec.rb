@@ -12,7 +12,7 @@ RSpec.describe StudentsController, type: :controller do
 
     it "assigns all students to @students" do
       get :index
-      expect(assigns(:students)).to eq(Student.all)
+      expect(assigns(:students)).to match_array(Student.all)
     end
 
     it "renders :index template" do
