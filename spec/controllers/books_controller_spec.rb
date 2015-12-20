@@ -12,7 +12,7 @@ RSpec.describe BooksController, type: :controller do
 
     it "assigns all books to @books" do
       get :index
-      expect(assigns(:books)).to be_a(ActiveRecord::Relation)
+      expect(assigns(:books)).to match_array(Book.all)
     end
 
     it "renders the :index template" do
