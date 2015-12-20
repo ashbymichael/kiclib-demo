@@ -1,8 +1,8 @@
 class Book < ActiveRecord::Base
   validates :title, presence: true
   validates :number, presence: true, uniqueness: true
-  belongs_to :student
-  has_many :transactions 
+  # belongs_to :student
+  has_many :transactions
   before_save :make_searchable_title
 
   LENGTH = 2.weeks
@@ -17,8 +17,16 @@ class Book < ActiveRecord::Base
   end
 
   def checked_out?
-    return true if student_id
-    false
+    return true unless Transaction.where(book_id: id, status: 'out').empty?
+  end
+
+  def student
+    transaction = Transaction.where(book_id: id, status: 'out').first
+    transaction.student
+  end
+
+  def active_transaction
+    Transaction.where(book_id: id, status: 'out').first
   end
 
   private

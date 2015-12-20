@@ -13,7 +13,7 @@ class TransactionsController < ApplicationController
   end
 
   def check_in
-    @transaction = Transaction.find(params[:id])
+    @transaction = Transaction.find(params[:transaction_id])
     if @transaction.update_attributes(status: 'complete')
       flash[:success] = "Checked in. Thanks!"
     else
