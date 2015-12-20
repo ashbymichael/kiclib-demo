@@ -4,12 +4,12 @@ Rails.application.routes.draw do
   resources :users
   resources :books
   resources :students
-  resources :transactions 
+  resources :transactions
 
   get  '/login'        => 'sessions#new'
   get  '/logout'       => 'sessions#destroy'
   get  '/admin'        => 'library#admin'
-  get  '/checkin'      => 'library#checkin'
+  get  '/checkin'      => 'transactions#check_in'
   get  '/checkout'     => 'library#index'
   get  '/import'       => 'students#import'
   get  '/overdue'      => 'library#overdue'

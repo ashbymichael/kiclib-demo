@@ -6,11 +6,20 @@ class TransactionsController < ApplicationController
   def create
     if checkout_params_ok?
       check_out_book
-      redirect_to root_url
     else
       flash[:error] = "Please select a book and student"
-      redirect_to root_url
     end
+    redirect_to root_url
+  end
+
+  def check_in
+    @transaction = Transaction.find(params[:id])
+    if @transaction.update_attributes(status: 'complete')
+      flash[:success] = "Checked in. Thanks!"
+    else
+      flash[:error] = "Book not checked in.  Something went wrong."
+    end
+    redirect_to root_url
   end
 
   private
@@ -30,7 +39,7 @@ class TransactionsController < ApplicationController
       @transaction.due = Time.now + 2.weeks
       if @transaction.save
         flash[:success] = "#{Book.find(params[:transaction][:book_id]).title}" +
-                " is due back on #{@transaction.due.strftime('%A, %_m/%-d/%Y')}"
+                " is due back on #{@transaction.due.strftime('%A, %-m/%-d/%Y')}"
       else
         flash[:error] = "Book not checked out"
       end
