@@ -19,7 +19,7 @@ class TransactionsController < ApplicationController
     else
       flash[:error] = "Book not checked in.  Something went wrong."
     end
-    redirect_to root_url
+    redirect_to :back 
   end
 
   private

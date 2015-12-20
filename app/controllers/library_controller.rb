@@ -8,6 +8,7 @@ class LibraryController < ApplicationController
   end
 
   def checkin
+    @active_transactions = Transaction.where(status: 'out')
     @checked_out_books = Book.where("student_id IS NOT NULL")
   end
 

@@ -7,13 +7,13 @@
       <th></th>
     </tr>
   </thead>
-  <% @checked_out_books.each do |book| %>
+  <% @active_transactions.each do |tra| %>
     <tr>
-      <td><%= book.id %></td>
-      <td><%= link_to book.title, book_path(book) %></td>
+      <td><%= tra.book.id %></td>
+      <td><%= link_to tra.book.title, book_path(tra.book) %></td>
       <!-- <td><%# book.due.strftime('%Y/%_m/%e %A') %></td> -->
       <td><%= form_tag '/checkin' %>
-            <%= hidden_field_tag 'book_id', book.id %>
+            <%= hidden_field_tag 'transaction_id', tra.id %>
             <%= button_tag "Check in", class: "list_button" %>
       </td>
     </tr>
