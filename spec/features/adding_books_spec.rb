@@ -18,7 +18,7 @@ describe "Adding books" do
     visit new_book_path
     expect{
       fill_in('book[title]', with: Faker::Lorem.sentence)
-      fill_in('book[number]', with: Book.last.id + 1)
+      # fill_in('book[number]', with: Book.last.id + 1)
       click_button('Submit')
     }.to change(Book, :count).by(1)
   end
