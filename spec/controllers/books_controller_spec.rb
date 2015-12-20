@@ -9,10 +9,10 @@ RSpec.describe BooksController, type: :controller do
     before do
       controller_sign_in_as(@user)
     end
-    
+
     it "assigns all books to @books" do
       get :index
-      expect(assigns(:books)).to eq(Book.all)
+      expect(assigns(:books)).to be_a(ActiveRecord::Relation)
     end
 
     it "renders the :index template" do

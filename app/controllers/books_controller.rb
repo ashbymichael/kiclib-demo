@@ -1,15 +1,13 @@
 class BooksController < ApplicationController
   before_action :require_signin
-  before_action :set_book, except: [:checkin, :update]
+  before_action :set_book, except: [:checkin]
 
   def index
     @books = Book.order(:number).page params[:page]
 
     respond_to do |format|
       format.html
-      format.csv do
-        set_csv_headers
-      end
+      format.csv { set_csv_headers }
     end
   end
 
