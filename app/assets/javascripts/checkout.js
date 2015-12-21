@@ -13,12 +13,12 @@ $(document).ready(function() {
       $('#co_book_input').val('');
       if (Array.isArray(data)) {
         $('#co_book_div').html(generateBookList(data));
-      } else if (data.id === undefined){
+      } else if (data.book.id === undefined){
         $('#co_book_div').html("<span class='red'>" + data.message + "</span>");
         $('#co_book_id_field').val('');
       } else {
-        $('#co_book_div').html("<span class='green'>" + data.title + "</span>");
-        $('#co_book_id_field').val(data.id);
+        $('#co_book_div').html("<span class='green'>" + data.book.title + "</span>");
+        $('#co_book_id_field').val(data.book.id);
       }
     });
   });
