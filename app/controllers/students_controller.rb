@@ -50,9 +50,8 @@ class StudentsController < ApplicationController
     # p cleaned_student
     if Student.exists?(cleaned_student)
       render json: Student.find(cleaned_student)
-    elsif Student.exists?(['contact LIKE ?', "%#{cleaned_student}%"])
-      render json: Student.where("contact LIKE ?",
-                                 "%#{cleaned_student}%")
+    elsif Student.exists?(sid: cleaned_student)
+      render json: Student.find_by(sid: cleaned_student)
     elsif Student.exists?(['search_name LIKE ?', "%#{cleaned_student}%"])
       render json: Student.where("search_name LIKE ?", "%#{cleaned_student}%")
     else

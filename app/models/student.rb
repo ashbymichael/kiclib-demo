@@ -1,14 +1,14 @@
 class Student < ActiveRecord::Base
   validates :name, presence: true
-  validates :contact, uniqueness: true
+  # validates :contact, uniqueness: true
   validates :sid, presence: true, uniqueness: true
   # has_many :books, dependent: :nullify
   has_many :transactions
-  before_save :make_searchable_name, :downcase_contact
+  before_save :make_searchable_name
 
   def self.import(file)
     CSV.foreach(file.tempfile, headers: false) do |row|
-      Student.create(sid: row[0], name: row[1])
+      Student.create(sid: row[0], name: row[1] + ' ' + row[2])
     end
   end
 

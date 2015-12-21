@@ -53,8 +53,8 @@ feature "Checking out books" do
       end
     end
 
-    it "can search for a student by their contact info, or partial", js: true do
-      fill_in("student", with: @student.contact[0..3])
+    it "can search for a student by their SID", js: true do
+      fill_in("student", with: @student.sid)
       click_on("co_find_student_button")
 
       within("#co_console") do
@@ -63,7 +63,7 @@ feature "Checking out books" do
     end
 
     it "makes you select a student when searching by name/contact", js: true do
-      fill_in("student", with: @student.contact[0..3])
+      fill_in("student", with: @student.name[0..2])
       click_on("co_find_student_button")
 
       within("#co_console") do
@@ -71,15 +71,15 @@ feature "Checking out books" do
       end
     end
 
-    it "is case insensitive for student contacts", js: true do
-      new_student = FactoryGirl.create(:student, contact: 'AAa')
-      fill_in("student", with: 'aaa')
-      click_on("co_find_student_button")
-
-      within("#co_console") do
-        expect(page).to have_content(new_student.name)
-      end
-    end
+    # it "is case insensitive for student contacts", js: true do
+    #   new_student = FactoryGirl.create(:student, contact: 'AAa')
+    #   fill_in("student", with: 'aaa')
+    #   click_on("co_find_student_button")
+    #
+    #   within("#co_console") do
+    #     expect(page).to have_content(new_student.name)
+    #   end
+    # end
 
     it "can select a student by their id number", js: true do
       fill_in("student", with: @student.id)
@@ -95,7 +95,7 @@ feature "Checking out books" do
     it "checks out the book to the student", js: true do
       fill_in("book", with: @book.id)
       click_on("co_find_book_button")
-      fill_in("student", with: @student.id)
+      fill_in("student", with: @student.sid)
       click_on("co_find_student_button")
       click_on("checkout_button")
 
