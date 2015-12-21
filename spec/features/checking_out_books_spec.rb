@@ -110,19 +110,17 @@ feature "Checking out books" do
       click_on("co_find_student_button")
       click_on("checkout_button")
 
-      @book.reload
-      expect(@book.due).to be_within(1.day).of(Time.now + 2.weeks)
+      expect(Transaction.last.due).to be_within(1.day).of(Time.now + 2.weeks)
     end
   end
 
   describe "with invalid student or book" do
     it "doesn't check out the book", js: true do
-      fill_in("book", with: @book.id)
-      click_on("co_find_book_button")
-      click_on("checkout_button")
-
-      @book.reload
-      expect(@book.student).to be_nil
+      expect {
+        fill_in("book", with: @book.id)
+        click_on("co_find_book_button")
+        click_on("checkout_button")
+      }.to_not change(Transaction, :count)
     end
 
     it "gives the user an error message", js: true do
