@@ -9,8 +9,8 @@ RSpec.describe Student, type: :model do
     expect(FactoryGirl.build(:student, name: nil)).to_not be_valid
   end
 
-  it "is invalid without contact info" do
-    expect(FactoryGirl.build(:student, contact: nil)).to_not be_valid
+  it "is invalid without SID" do
+    expect(FactoryGirl.build(:student, sid: nil)).to_not be_valid
   end
 
   it "is invalid with duplicate contact info" do
