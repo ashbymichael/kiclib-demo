@@ -16,17 +16,17 @@ $(document).ready(function() {
       if (Array.isArray(data)) {
         $('#ci_book_div').html(generateCheckedOutBookList(data));
         $('#ci_form_div').addClass("hidden");
-      } else if(data.id === undefined) {
+      } else if(data.status === 'in') {
         $('#ci_book_div').html("<span class='red'>" +
-                                  data.message + "</span>");
+                                  data.book.title + " is not checked out.</span>");
         $('#ci_book_id_field').val('');
       } else {
-        if(data.student_id !== null) {
-          $('#ci_book_div').html(data.id + " | " + data.title);
+        if(data.status === 'out') {
+          $('#ci_book_div').html(data.book.id + " | " + data.book.title);
           $('#ci_form_div').removeClass("hidden");
-          $('#ci_book_id_field').val(data.id);
+          $('#ci_book_id_field').val(data.book.id);
         } else {
-          $('#ci_book_div').html(data.id + " | " + data.title +
+          $('#ci_book_div').html(data.book.id + " | " + data.book.title +
                                  " is not checked out.");
           $('#ci_book_id_field').val('');
           $('#ci_form_div').addClass("hidden");

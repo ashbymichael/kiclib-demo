@@ -5,7 +5,7 @@ feature "Checking in books:" do
     @user = FactoryGirl.create(:user)
     @student = FactoryGirl.create(:student)
     @book = FactoryGirl.create(:book)
-    @book.check_out_book_to_student(@student.id)
+    @transaction = FactoryGirl.create(:transaction, student: @student, book: @book)
 
     visit login_path
     fill_in('session[username]', with: @user.username)
@@ -35,8 +35,8 @@ feature "Checking in books:" do
     end
 
     it "tells user if book is not checked out with 1 result", js: true do
-      @book.check_in_book
-      expect(@book.checked_out?).to be(false)
+      @transaction.update_attributes(status: 'complete')
+      expect(@book.checked_out?).to_not be(true)
 
       fill_in("book", with: @book.id)
       click_button("ci_find_book_button")
@@ -47,8 +47,8 @@ feature "Checking in books:" do
     end
 
     it "tells user book is not checked out with multiple results", js: true do
-      @book.check_in_book
-      expect(@book.checked_out?).to be(false)
+      @transaction.check_in
+      expect(@book.checked_out?).to_not be(true)
       FactoryGirl.create(:book, title: @book.title)
 
       fill_in("book", with: @book.title)
@@ -83,7 +83,7 @@ feature "Checking in books:" do
       end
 
       @book.reload
-      expect(@book.checked_out?).to be(false)
+      expect(@book.checked_out?).to_not be(true)
     end
   end
 
@@ -97,7 +97,7 @@ feature "Checking in books:" do
       end
 
       @book.reload
-      expect(@book.checked_out?).to be(false)
+      expect(@book.checked_out?).to_not be(true)
     end
   end
 end
