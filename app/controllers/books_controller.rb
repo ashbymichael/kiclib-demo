@@ -27,8 +27,10 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
 
     if @book.save
+      flash[:success] = "#{@book.title} added"
       redirect_to new_book_url
     else
+      flash[:error] = "Sorry, something went wrong.  The book wasn't added."
       @books = Book.order(id: :desc).page params[:page]
       render :new
     end
