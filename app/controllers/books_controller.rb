@@ -3,11 +3,12 @@ class BooksController < ApplicationController
   before_action :set_book, except: [:checkin]
 
   def index
-    @books = Book.order(:number).page params[:page]
-
     respond_to do |format|
-      format.html
-      format.csv { set_csv_headers }
+      format.html { @books = Book.order(:number).page params[:page] }
+      format.csv do
+        @books = Book.all  
+        set_csv_headers
+      end
     end
   end
 
