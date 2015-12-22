@@ -4,7 +4,7 @@ class Student < ActiveRecord::Base
   validates :sid, presence: true, uniqueness: true
   # has_many :books, dependent: :nullify
   has_many :transactions
-  before_save :make_searchable_name
+  # before_save :make_searchable_name
 
   def self.import(file)
     CSV.foreach(file.tempfile, headers: false) do |row|
