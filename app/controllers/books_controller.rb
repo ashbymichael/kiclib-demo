@@ -75,8 +75,8 @@ class BooksController < ApplicationController
 
   def find_book
     clean_title = params[:book].gsub(/\s+/, '').downcase
-    if Book.exists?(params[:book])
-      book = Book.find(params[:book])
+    if Book.exists?(number: clean_title)
+      book = Book.find_by(number: clean_title)
       render json: {book: book, status: book.status}
     elsif Book.exists?(['search_title LIKE ?', "%#{clean_title}%"])
       render json: Book.where("search_title LIKE ?", "%#{clean_title}%")
