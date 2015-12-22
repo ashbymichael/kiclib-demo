@@ -1,7 +1,7 @@
 module BooksHelper
   def suggested_book_number
-    if Book.last
-      Book.last.number + 1
+    unless Book.all.empty?
+      Book.order(:number).last.number + 1
     else
       1
     end
