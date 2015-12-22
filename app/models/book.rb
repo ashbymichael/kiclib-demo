@@ -22,7 +22,7 @@ class Book < ActiveRecord::Base
 
   def student
     transaction = Transaction.where(book_id: id, status: 'out').first
-    transaction.student
+    transaction.student if transaction 
   end
 
   def active_transaction
