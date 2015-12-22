@@ -1,7 +1,7 @@
 module BooksHelper
   def suggested_book_number
     if Book.last
-      Book.last.id + 1
+      Book.last.number + 1
     else
       1
     end
