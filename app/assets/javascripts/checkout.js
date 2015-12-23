@@ -13,6 +13,7 @@ $(document).ready(function() {
       $('#co_book_input').val('');
       if (Array.isArray(data)) {
         $('#co_book_div').html(generateBookList(data));
+        $('#co_book_div').css("background-color", "rgba(242, 180, 180, 0.75)");
       } else if (data.book.id === undefined){
         $('#co_book_div').html("<span class='red'>" + data.message + "</span>");
         $('#co_book_id_field').val('');
@@ -36,6 +37,7 @@ $(document).ready(function() {
       console.log(data);
       $('#co_student_input').val('');
       if (Array.isArray(data)) {
+        $('#co_student_div').css('background-color', "rgba(242, 180, 180, 0.75)")
         $('#co_student_div').html(generateStudentList(data));
       } else if (data.id === undefined) {
         $('#co_student_div').html("<span class='red'>" + data.message
@@ -60,6 +62,7 @@ $(document).ready(function() {
     req.success(function(data){
       console.log(data);
       $('#co_book_input').val('');
+      $('#co_book_div').css("background-color", "inherit");
       $('#co_book_div').html("<span class='green'>" + data.title + "</span>");
       $('#co_book_id_field').val(data.id);
     });
@@ -76,6 +79,7 @@ $(document).ready(function() {
     req.success(function(data){
       console.log(data);
       $('#co_student_input').val('');
+      $('#co_student_div').css('background-color', 'inherit')
       $('#co_student_div').html("<span class='green'>" + data.name + " | "
                                 + data.sid + "</span>");
       $('#co_student_id_field').val(data.id);
@@ -84,7 +88,7 @@ $(document).ready(function() {
 });
 
 var generateStudentList = function(data) {
-  var result = "Please select a student: <ul class='red'>";
+  var result = "<strong>Please select a student:</strong> <ul class='red'>";
   for (var i = 0; i < data.length; i++) {
     result += ("<li><a href='#' data-student=" + data[i].id + ">" +
     data[i].name + "</a></li>");
@@ -94,7 +98,7 @@ var generateStudentList = function(data) {
 };
 
 var generateBookList = function(data) {
-  var result = "Please select a book: <ul class='red'>";
+  var result = "<strong>Please select a book:</strong> <ul class='red'>";
   for (var i = 0; i < data.length; i++) {
     result += ("<li><a href='#' data-book=" + data[i].id + ">" + data[i].id +
                " | " + data[i].title + "</a></li>");
