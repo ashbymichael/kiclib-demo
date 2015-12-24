@@ -35,8 +35,8 @@ feature "Checking out books" do
       end
     end
 
-    it "can search for a book by its id number", js: true do
-      fill_in("book", with: @book.id)
+    it "can search for a book by its number", js: true do
+      fill_in("book", with: @book.number)
       click_on("co_find_book_button")
 
       within("#co_console") do
@@ -81,8 +81,8 @@ feature "Checking out books" do
     #   end
     # end
 
-    it "can select a student by their id number", js: true do
-      fill_in("student", with: @student.id)
+    it "can select a student by their SID number", js: true do
+      fill_in("student", with: @student.sid)
       click_on("co_find_student_button")
 
       within("#co_console") do
@@ -93,20 +93,19 @@ feature "Checking out books" do
 
   describe "with valid student and book" do
     it "checks out the book to the student", js: true do
-      fill_in("book", with: @book.id)
+      fill_in("book", with: @book.number)
       click_on("co_find_book_button")
       fill_in("student", with: @student.sid)
       click_on("co_find_student_button")
       click_on("checkout_button")
 
-      @book.reload
-      expect(@book.student).to eq(@student)
+      expect(Transaction.last.student).to eq(@student)
     end
 
     it "sets the due date to two weeks in the future", js: true do
-      fill_in("book", with: @book.id)
+      fill_in("book", with: @book.number)
       click_on("co_find_book_button")
-      fill_in("student", with: @student.id)
+      fill_in("student", with: @student.sid)
       click_on("co_find_student_button")
       click_on("checkout_button")
 
