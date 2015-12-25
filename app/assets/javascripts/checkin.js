@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  console.log('checkin ready!');
 
   $('#ci_checkin_book_form').submit(function(e){
     e.preventDefault();
@@ -10,7 +9,6 @@ $(document).ready(function() {
       data: { book: $('#ci_book_input').val() }
     });
     req.success(function(data) {
-      console.log(data);
 
       $('#ci_book_input').val('');
       if (Array.isArray(data)) {

@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  console.log('ready');
   $('#co_book_form').submit(function(e){
     e.preventDefault();
     var req = $.ajax({
@@ -9,7 +8,6 @@ $(document).ready(function() {
       data: { book: $('#co_book_input').val() }
     });
     req.success(function(data) {
-      console.log(data);
       $('#co_book_input').val('');
       if (Array.isArray(data)) {
         $('#co_book_div').html(generateBookList(data));
@@ -34,7 +32,6 @@ $(document).ready(function() {
     });
 
     req.success(function(data){
-      console.log(data);
       $('#co_student_input').val('');
       if (Array.isArray(data)) {
         $('#co_student_div').css('background-color', "rgba(242, 180, 180, 0.75)")
@@ -53,14 +50,12 @@ $(document).ready(function() {
 
   $('#co_book_div').on("click", "a", function(e){
     e.preventDefault();
-    console.log($(this).attr('data-book'));
     var req = $.ajax({
       type: 'get',
       url: '/books/' + $(this).attr('data-book'),
       dataType: 'json'
     });
     req.success(function(data){
-      console.log(data);
       $('#co_book_input').val('');
       $('#co_book_div').css("background-color", "inherit");
       $('#co_book_div').html("<span class='green'>" + data.title + "</span>");
@@ -70,14 +65,12 @@ $(document).ready(function() {
 
   $('#co_student_div').on("click", "a", function(e){
     e.preventDefault();
-    console.log($(this).attr('data-student'));
     var req = $.ajax({
       type: 'get',
       url: '/students/' + $(this).attr('data-student'),
       dataType: 'json'
     });
     req.success(function(data){
-      console.log(data);
       $('#co_student_input').val('');
       $('#co_student_div').css('background-color', 'inherit')
       $('#co_student_div').html("<span class='green'>" + data.name + " | "
@@ -91,7 +84,7 @@ var generateStudentList = function(data) {
   var result = "<strong>Please select a student:</strong> <ul class='red'>";
   for (var i = 0; i < data.length; i++) {
     result += ("<li><a href='#' data-student=" + data[i].id + ">" +
-    data[i].name + "</a></li>");
+        data[i].sid + ' | ' + data[i].name + "</a></li>");
   }
   result += "</ul>";
   return result;
@@ -100,8 +93,8 @@ var generateStudentList = function(data) {
 var generateBookList = function(data) {
   var result = "<strong>Please select a book:</strong> <ul class='red'>";
   for (var i = 0; i < data.length; i++) {
-    result += ("<li><a href='#' data-book=" + data[i].id + ">" + data[i].id +
-               " | " + data[i].title + "</a></li>");
+    result += ("<li><a href='#' data-book=" + data[i].id + ">" +
+        data[i].number + " | " + data[i].title + "</a></li>");
   }
   result += "</ul>";
   return result;
