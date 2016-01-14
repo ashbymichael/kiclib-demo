@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  before_action :require_signin
+  # before_action :require_signin
   before_action :set_student
 
   def index
