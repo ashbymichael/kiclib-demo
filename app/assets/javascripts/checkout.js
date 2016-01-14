@@ -41,8 +41,7 @@ $(document).ready(function() {
                                   + "</span>");
         $('#co_student_id_field').val(data.id);
       } else {
-        $('#co_student_div').html("<span class='green'>" + data.name + " | " +
-                                  data.contact + "</span>");
+        $('#co_student_div').html("<span class='green'>" + data.name + "</span>");
         $('#co_student_id_field').val(data.id);
       }
     });
