@@ -73,8 +73,7 @@ $(document).ready(function() {
     req.success(function(data){
       $('#co_student_input').val('');
       $('#co_student_div').css('background-color', 'inherit')
-      $('#co_student_div').html("<span class='green'>" + data.name + " | "
-                                + data.sid + "</span>");
+      $('#co_student_div').html("<span class='green'>" + data.name + "</span>");
       $('#co_student_id_field').val(data.id);
     });
   });

@@ -7,22 +7,13 @@ class Book < ActiveRecord::Base
 
   LENGTH = 2.weeks
 
-  # def check_out_book_to_student(student_id)
-  #   update_attributes(student_id: student_id, due: Time.now + LENGTH)
-  # end
-
-
-  # def check_in_book
-  #   update_attributes(student_id: nil, due: nil)
-  # end
-
   def checked_out?
     return true unless Transaction.where(book_id: id, status: 'out').empty?
   end
 
   def student
     transaction = Transaction.where(book_id: id, status: 'out').first
-    transaction.student if transaction 
+    transaction.student if transaction
   end
 
   def active_transaction

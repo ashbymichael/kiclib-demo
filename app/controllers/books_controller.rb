@@ -53,27 +53,6 @@ class BooksController < ApplicationController
     redirect_to books_url
   end
 
-  # def checkout
-  #   if checkout_params_ok?
-  #     book = Book.find(params[:book_id])
-  #     book.check_out_book_to_student(params[:student_id])
-  #
-  #     flash[:success] = "#{book.title} is due back on " +
-  #                      "#{book.due.strftime('%A, %_m/%e/%Y')}"
-  #     redirect_to root_url
-  #   else
-  #     flash[:error] = "Please select a book and student"
-  #     redirect_to root_url
-  #   end
-  # end
-
-  # def checkin
-  #   @book = Book.find(params[:book_id])
-  #   @book.check_in_book
-  #   flash[:success] = "Thank you. #{@book.title} was successfully checked in."
-  #   redirect_to checkin_url
-  # end
-
   def find_book
     clean_title = params[:book].gsub(/\s+/, '').downcase
     if Book.exists?(number: clean_title)

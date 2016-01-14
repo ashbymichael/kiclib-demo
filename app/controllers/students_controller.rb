@@ -47,7 +47,6 @@ class StudentsController < ApplicationController
 
   def find_student
     cleaned_student = params[:student].gsub(/\s+/, "").downcase
-    # p cleaned_student
     if Student.exists?(cleaned_student)
       render json: Student.find(cleaned_student)
     elsif Student.exists?(sid: cleaned_student)
